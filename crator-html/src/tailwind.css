@@ -1,0 +1,7 @@
+/* Inter font */
+@import url("https://rsms.me/inter/inter.css");
+
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

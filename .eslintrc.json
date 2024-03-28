@@ -1,0 +1,8 @@
+{
+  "extends": ["jf-experimentation"],
+  "rules": {
+    "regexp/no-unused-capturing-group": 0,
+    "react/no-unescaped-entities":0,
+    "react/prop-types": [ {"ignore": ["children"]}]
+  }
+}

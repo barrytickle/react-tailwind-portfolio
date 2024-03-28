@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- AlpineJS -->
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+
+    <!-- PAGE TITLE -->
+    <title>Services - Crator</title>
+    <meta
+      name="description"
+      content="We help you develop a website that is custom-made for your business. Our services include, but are not limited to: Web design, Web Development and SEO."
+    />
+  </head>
+
+  <body class="relative overflow-x-hidden">
+    <!-- Site Header -->
+    <!-- 
+      This component uses Alpine.js for the mobile navigation menu. If you're not familiar with Alpine you can check out their documentation here: https://alpinejs.dev/start-here
+    -->
+    <header class="bg-dark-900">
+      <nav
+        class="flex items-center px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8"
+      >
+        <div class="flex items-center justify-between w-full">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <!-- Large logo -->
+            <a
+              href="index.html"
+              class="block text-2xl font-black md:hidden lg:block group"
+            >
+              <span
+                class="text-white transition duration-200 ease-in-out group-hover:text-dark-300"
+                >Crator</span
+              >
+              <span
+                class="transition duration-200 ease-in-out text-dark-300 group-hover:text-white"
+                >Studio</span
+              >
+            </a>
+
+            <!-- Small logo for mobile screens -->
+            <a
+              href="index.html"
+              class="hidden text-3xl font-black md:block lg:hidden group"
+            >
+              <span
+                class="text-white transition duration-200 ease-in-out group-hover:text-dark-300"
+                >C</span
+              ><span
+                class="transition duration-200 ease-in-out text-dark-300 group-hover:text-white"
+                >S</span
+              >
+            </a>
+          </div>
+
+          <!-- Main menu for large screens -->
+          <div
+            class="hidden md:flex justify-between items-center md:space-x-0.5 lg:space-x-2 text-xl md:text-base font-medium text-dark-300"
+          >
+            <a
+              href="index.html"
+              class="block px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700"
+            >
+              Home
+            </a>
+            <a
+              href="services.html"
+              class="block px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700"
+            >
+              Services
+            </a>
+            <a
+              href="about.html"
+              class="block px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700"
+            >
+              About
+            </a>
+            <a
+              href="work.html"
+              class="block px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700"
+            >
+              Work
+            </a>
+            <a
+              href="case-study.html"
+              class="block px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700"
+            >
+              Case study
+            </a>
+          </div>
+
+          <div class="hidden md:block">
+            <a
+              class="flex items-center justify-center w-auto px-8 py-3 text-base font-semibold leading-snug transition ease-in-out bg-white rounded-full duration-250 text-dark-900 hover:text-white focus:outline-none hover:bg-dark-800"
+              href="contact.html"
+            >
+              Let's talk
+            </a>
+          </div>
+
+          <!-- Mobile menu container -->
+          <div class="block md:hidden" x-data="{ open: false }">
+            <!-- Hamburger menu button -->
+            <!--
+              Toggle classes based on menu state
+            -->
+            <button
+              class="relative z-50 w-6 h-5 transition duration-500 ease-in-out transform rotate-0 cursor-pointer group focus:outline-none"
+              @click="open = !open"
+            >
+              <span
+                class="absolute block h-1 transition-all duration-300 ease-in-out transform rotate-0 rounded-full opacity-100 bg-dark-300 group-hover:bg-white"
+                :class="open ? 'top-2 left-1/2 w-0': 'w-full top-0 left-0'"
+              ></span>
+              <span
+                class="absolute left-0 block w-full h-1 transition-all duration-300 ease-in-out transform rounded-full opacity-100 bg-dark-300 group-hover:bg-white top-2"
+                :class="open ? 'rotate-45': 'rotate-0'"
+              ></span>
+              <span
+                class="absolute left-0 block w-full h-1 transition-all duration-300 ease-in-out transform rounded-full opacity-100 bg-dark-300 group-hover:bg-white top-2"
+                :class="open ? '-rotate-45': 'rotate-0'"
+              ></span>
+              <span
+                class="absolute block h-1 transition-all duration-300 ease-in-out transform rotate-0 rounded-full opacity-100 bg-dark-300 group-hover:bg-white"
+                :class="open ? 'top-2 left-1/2 w-0': 'w-full left-0 top-4'"
+              ></span>
+            </button>
+
+            <!-- Mobile menu -->
+            <!--
+              Toggle classes based on menu state
+            -->
+            <div
+              class="absolute top-0 left-0 z-40 flex items-center justify-center w-screen h-screen bg-gradient-to-tr from-dark-800 to-dark-900"
+              @keydown.escape.window="open = false"
+              @click.away="open = false"
+              x-show="open"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0 -translate-y-full"
+              x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-in duration-200"
+              x-transition:leave-start="opacity-100 translate-y-0"
+              x-transition:leave-end="opacity-0 -translate-y-full"
+              style="display: none"
+            >
+              <div
+                class="flex flex-col items-center w-full p-4 mx-auto space-y-8 text-xl justify-evenly"
+              >
+                <a
+                  href="index.html"
+                  class="block px-6 py-2 font-medium transition duration-200 ease-in-out rounded-full text-dark-300 hover:text-white hover:bg-dark-700 sm:inline-block"
+                >
+                  Home
+                </a>
+                <a
+                  href="services.html"
+                  class="block px-6 py-2 font-medium transition duration-200 ease-in-out rounded-full text-dark-300 hover:text-white hover:bg-dark-700 sm:inline-block"
+                >
+                  Services
+                </a>
+                <a
+                  href="about.html"
+                  class="block px-6 py-2 font-medium transition duration-200 ease-in-out rounded-full text-dark-300 hover:text-white hover:bg-dark-700 sm:inline-block"
+                >
+                  About
+                </a>
+                <a
+                  href="work.html"
+                  class="block px-6 py-2 font-medium transition duration-200 ease-in-out rounded-full text-dark-300 hover:text-white hover:bg-dark-700 sm:inline-block"
+                >
+                  Work
+                </a>
+                <a
+                  href="case-study.html"
+                  class="block px-6 py-2 font-medium transition duration-200 ease-in-out rounded-full text-dark-300 hover:text-white hover:bg-dark-700 sm:inline-block"
+                >
+                  Case study
+                </a>
+
+                <a
+                  class="flex items-center justify-center w-auto px-8 py-4 text-lg font-semibold leading-snug transition ease-in-out bg-white rounded-full duration-250 text-dark-900 hover:text-white focus:outline-none hover:bg-dark-700"
+                  href="contact.html"
+                >
+                  Let's talk
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page content -->
+    <main class="bg-dark-900">
+      <!-- Services Hero -->
+      <section
+        class="px-4 pt-12 pb-10 md:pt-16 md:pb-20 sm:px-6 lg:px-8 bg-dark-900 lg:pb-64"
+      >
+        <div class="max-w-screen-xl mx-auto">
+          <!-- Hero header -->
+          <div>
+            <p
+              class="inline-flex items-center justify-center px-6 py-2 text-sm font-medium tracking-wide text-white rounded-r-full rounded-tl-full bg-gradient-to-r from-dark-600 to-dark-700"
+            >
+              Our services
+            </p>
+            <h1
+              class="mt-6 text-4xl font-extrabold text-left text-white sm:text-5xl md:text-6xl"
+            >
+              We Create meaningful digital solutions that level up your business
+            </h1>
+          </div>
+
+          <!-- Hero content -->
+          <div class="relative mt-6 md:mt-8 lg:mt-12 xl:mt-16">
+            <div class="z-10 grid gap-x-8 lg:grid-cols-2 lg:absolute">
+              <div>
+                <p
+                  class="max-w-lg text-xl lg:mx-auto text-dark-300 sm:max-w-3xl"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Vivamus suscipit tortor eget felis porttitor volutpat.
+                  Curabitur aliquet quam id dui posuere blandit.
+                </p>
+                <div class="mt-8 sm:flex sm:justify-start">
+                  <a
+                    class="flex items-center justify-center w-auto px-8 py-4 text-base font-semibold leading-snug transition ease-in-out bg-white rounded-full h-14 duration-250 text-dark-900 hover:text-white focus:outline-none hover:bg-dark-700"
+                    href="contact.html"
+                  >
+                    Let's get started
+                  </a>
+                </div>
+              </div>
+
+              <!-- Hero images -->
+              <div
+                class="grid mx-auto mt-10 md:mt-12 sm:grid-cols-2 sm:gap-x-4 lg:mt-0 sm:mx-0"
+              >
+                <img
+                  src="images/hero-services-01.jpg"
+                  class="object-cover object-center w-full shadow-xl rounded-3xl lg:h-96"
+                />
+                <img
+                  src="images/hero-services-02.jpg"
+                  class="hidden object-cover object-center w-full mt-6 shadow-xl rounded-3xl sm:block sm:mt-0 lg:h-96"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Diagonal section separator -->
+      <div class="relative w-full h-16 md:h-32 bg-dark-900">
+        <svg
+          class="absolute w-full h-full text-dark-800"
+          preserveaspectratio="none"
+          viewbox="0 0 100 100"
+          fill="currentcolor"
+        >
+          <polygon points="0,100 100,100 100,0" />
+        </svg>
+      </div>
+
+      <!-- Simple alternating features section -->
+      <section class="pt-10 pb-10 md:pb-12 md:pt-20 lg:pt-36 bg-dark-800">
+        <!-- Features container -->
+        <div class="w-full max-w-screen-xl mx-auto">
+          <!-- Feature -->
+          <div
+            class="w-full px-0 md:grid md:grid-cols-2 lg:gap-x-12 xl:gap-x-36 md:gap-8 lg:px-6"
+          >
+            <!-- Feature text -->
+            <div
+              class="flex flex-col justify-center px-4 sm:px-6 md:pl-0 md:order-2 lg:px-0"
+            >
+              <div>
+                <p
+                  class="inline-flex items-center justify-center px-6 py-2 text-sm font-medium tracking-wide text-white rounded-r-full rounded-tl-full bg-gradient-to-r from-dark-600 to-dark-700"
+                >
+                  Product development
+                </p>
+              </div>
+              <h3
+                class="mt-4 text-3xl font-extrabold text-white md:mt-6 sm:text-4xl lg:text-5xl"
+              >
+                Innovative digital solutions
+              </h3>
+              <p class="mt-4 text-xl md:mt-6 text-dark-300">
+                Lorem ipsum dolor, sit amet consectetur elit do eius mod tempor
+                labore sit amet. Praesent sapien massa, convallis a pellentesque
+                et.
+              </p>
+            </div>
+
+            <!-- Feature image -->
+            <div
+              class="relative w-full mt-10 md:mt-0 md:rounded-r-3xl lg:rounded-l-3xl pt-11/12 md:order-1"
+            >
+              <img
+                src="images/features-alternating-simple-01.jpg"
+                class="absolute inset-y-0 object-cover object-center w-full h-full shadow-xl md:rounded-r-3xl lg:rounded-l-3xl"
+              />
+            </div>
+          </div>
+
+          <!-- Feature -->
+          <div
+            class="w-full px-0 mt-20 md:mt-24 md:grid md:grid-cols-2 lg:gap-x-12 xl:gap-x-36 md:gap-8 lg:mt-32 lg:px-6"
+          >
+            <!-- Feature text -->
+            <div
+              class="flex flex-col justify-center px-4 sm:px-6 md:pr-0 lg:px-0"
+            >
+              <div>
+                <p
+                  class="inline-flex items-center justify-center px-6 py-2 text-sm font-medium tracking-wide text-white rounded-r-full rounded-tl-full bg-gradient-to-r from-dark-600 to-dark-700"
+                >
+                  Design
+                </p>
+              </div>
+              <h3
+                class="mt-4 text-3xl font-extrabold text-white md:mt-6 sm:text-4xl lg:text-5xl"
+              >
+                Designing for better user experiences
+              </h3>
+              <p class="mt-4 text-xl md:mt-6 text-dark-300">
+                Lorem ipsum dolor, sit amet consectetur elit do eius mod tempor
+                labore sit amet. Praesent sapien massa, convallis a pellentesque
+                et.
+              </p>
+            </div>
+
+            <!-- Feature image -->
+            <div
+              class="relative w-full mt-10 md:mt-0 md:rounded-l-3xl lg:rounded-r-3xl pt-11/12"
+            >
+              <img
+                src="images/features-alternating-simple-02.jpg"
+                class="absolute inset-y-0 object-cover object-center w-full h-full shadow-xl md:rounded-l-3xl lg:rounded-r-3xl"
+              />
+            </div>
+          </div>
+
+          <!-- Feature -->
+          <div
+            class="w-full px-0 mt-20 md:mt-24 lg:mt-32 md:grid md:grid-cols-2 lg:gap-x-12 xl:gap-x-36 md:gap-8 lg:px-6"
+          >
+            <!-- Feature text -->
+            <div
+              class="flex flex-col justify-center px-4 sm:px-6 md:pl-0 md:order-2 lg:px-0"
+            >
+              <div>
+                <p
+                  class="inline-flex items-center justify-center px-6 py-2 text-sm font-medium tracking-wide text-white rounded-r-full rounded-tl-full bg-gradient-to-r from-dark-600 to-dark-700"
+                >
+                  Optimization
+                </p>
+              </div>
+              <h3
+                class="mt-4 text-3xl font-extrabold text-white md:mt-6 sm:text-4xl lg:text-5xl"
+              >
+                State of the art performance
+              </h3>
+              <p class="mt-4 text-xl md:mt-6 text-dark-300">
+                Lorem ipsum dolor, sit amet consectetur elit do eius mod tempor
+                labore sit amet. Praesent sapien massa, convallis a pellentesque
+                et.
+              </p>
+            </div>
+
+            <!-- Feature image -->
+            <div
+              class="relative w-full mt-10 md:mt-0 md:rounded-r-3xl lg:rounded-l-3xl pt-11/12 md:order-1"
+            >
+              <img
+                src="images/features-alternating-simple-03.jpg"
+                class="absolute inset-y-0 object-cover object-center w-full h-full shadow-xl md:rounded-r-3xl lg:rounded-l-3xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Diagonal section separator -->
+      <div class="relative w-full h-16 bg-dark-800 md:h-32 lg:h-48">
+        <svg
+          class="absolute w-full h-full text-dark-900"
+          preserveaspectratio="none"
+          viewbox="0 0 100 100"
+          fill="currentcolor"
+        >
+          <polygon points="0,0 0,100 100,100" />
+        </svg>
+      </div>
+
+      <!-- Features 2x6 grid -->
+      <section
+        class="px-4 pt-10 pb-10 md:pt-12 md:pb-12 bg-dark-900 sm:px-6 lg:px-8"
+      >
+        <div class="flex flex-wrap items-center w-full max-w-screen-xl mx-auto">
+          <div class="flex flex-wrap w-full">
+            <!-- Section header with button -->
+            <div class="relative flex w-full lg:w-1/3">
+              <div class="relative flex w-full">
+                <div class="relative flex flex-wrap w-full lg:flex-col">
+                  <div class="relative w-full">
+                    <p
+                      class="inline-flex items-center justify-center px-6 py-2 text-sm font-medium tracking-wide text-white rounded-r-full rounded-tl-full bg-gradient-to-r from-dark-600 to-dark-700"
+                    >
+                      What we offer
+                    </p>
+                    <h2
+                      class="relative w-full mt-6 text-3xl font-extrabold text-left text-white sm:text-4xl md:text-5xl"
+                    >
+                      We've Got You <br />
+                      Covered
+                    </h2>
+                  </div>
+                  <div class="mt-8 text-left lg:mt-10">
+                    <a
+                      class="relative inline-flex items-center justify-center w-auto h-12 px-8 text-base font-medium leading-snug text-white md:h-14 group"
+                      href="work.html"
+                    >
+                      <span
+                        class="absolute top-0 left-0 z-10 block w-full h-full transition-all ease-in-out rounded-full bg-gradient-to-r duration-250 from-dark-600 to-dark-700 md:w-14 md:group-hover:w-full"
+                      ></span>
+                      <span class="relative z-20">View work</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2x6 features grid -->
+            <div class="relative flex w-full mt-16 lg:w-2/3 lg:pl-8">
+              <div
+                class="grid w-full gap-y-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-16"
+              >
+                <!-- Feature -->
+                <div class="relative flex flex-col w-full">
+                  <span
+                    class="flex items-center justify-center w-16 h-16 shadow-xl bg-gradient-to-r rounded-3xl from-dark-600 to-dark-700"
+                  >
+                    <!-- TablerIcon name: box -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-8 h-8 text-dark-300"
+                      width="44"
+                      height="44"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <polyline
+                        points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"
+                      />
+                      <line x1="12" y1="12" x2="20" y2="7.5" />
+                      <line x1="12" y1="12" x2="12" y2="21" />
+                      <line x1="12" y1="12" x2="4" y2="7.5" />
+                    </svg>
+                  </span>
+                  <h4 class="mt-4 text-2xl font-semibold text-white">
+                    Service One
+                  </h4>
+                  <p
+                    class="max-w-sm mt-1 text-lg leading-relaxed text-dark-300"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, do
+                    eius mod tempor.
+                  </p>
+                </div>
+
+                <!-- Feature -->
+                <div class="relative flex flex-col w-full">
+                  <span
+                    class="flex items-center justify-center w-16 h-16 shadow-xl bg-gradient-to-r rounded-3xl from-dark-600 to-dark-700"
+                  >
+                    <!-- TablerIcon name: circles -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-8 h-8 text-dark-300"
+                      width="44"
+                      height="44"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <circle cx="12" cy="7" r="4" />
+                      <circle cx="6.5" cy="17" r="4" />
+                      <circle cx="17.5" cy="17" r="4" />
+                    </svg>
+                  </span>
+                  <h4 class="mt-4 text-2xl font-semibold text-white">
+                    Service Two
+                  </h4>
+                  <p
+                    class="max-w-sm mt-1 text-lg leading-relaxed text-dark-300"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, do
+                    eius mod tempor.
+                  </p>
+                </div>
+
+                <!-- Feature -->
+                <div class="relative flex flex-col w-full">
+                  <div
+                    class="flex items-center justify-center w-16 h-16 shadow-xl bg-gradient-to-r rounded-3xl from-dark-600 to-dark-700"
+                  >
+                    <!-- TablerIcon name: circle-square -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-8 h-8 text-dark-300"
+                      width="44"
+                      height="44"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <circle cx="9.5" cy="9.5" r="6.5" />
+                      <rect x="10" y="10" width="11" height="11" rx="2" />
+                    </svg>
+                  </div>
+                  <h4 class="mt-4 text-2xl font-semibold text-white">
+                    Service Three
+                  </h4>
+                  <p
+                    class="max-w-sm mt-1 text-lg leading-relaxed text-dark-300"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, do
+                    eius mod tempor.
+                  </p>
+                </div>
+
+                <!-- Feature -->
+                <div class="relative flex flex-col w-full">
+                  <div
+                    class="flex items-center justify-center w-16 h-16 shadow-xl bg-gradient-to-r rounded-3xl from-dark-600 to-dark-700"
+                  >
+                    <!-- TablerIcon name: diamond -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-8 h-8 text-dark-300"
+                      width="44"
+                      height="44"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path
+                        d="M6 5h12l3 5l-8.5 9.5a0.7 .7 0 0 1 -1 0l-8.5 -9.5l3 -5"
+                      />
+                      <path d="M10 12l-2 -2.2l.6 -1" />
+                    </svg>
+                  </div>
+
+                  <h4 class="mt-4 text-2xl font-semibold text-white">
+                    Service Four
+                  </h4>
+                  <p
+                    class="max-w-sm mt-1 text-lg leading-relaxed text-dark-300"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, do
+                    eius mod tempor.
+                  </p>
+                </div>
+
+                <!-- Feature -->
+                <div class="relative flex flex-col w-full">
+                  <div
+                    class="flex items-center justify-center w-16 h-16 shadow-xl bg-gradient-to-r rounded-3xl from-dark-600 to-dark-700"
+                  >
+                    <!-- TablerIcon name: stack -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-8 h-8 text-dark-300"
+                      width="44"
+                      height="44"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <polyline points="12 4 4 8 12 12 20 8 12 4" />
+                      <polyline points="4 12 12 16 20 12" />
+                      <polyline points="4 16 12 20 20 16" />
+                    </svg>
+                  </div>
+
+                  <h4 class="mt-4 text-2xl font-semibold text-white">
+                    Service Five
+                  </h4>
+                  <p
+                    class="max-w-sm mt-1 text-lg leading-relaxed text-dark-300"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, do
+                    eius mod tempor.
+                  </p>
+                </div>
+
+                <!-- Feature -->
+                <div class="relative flex flex-col w-full">
+                  <div
+                    class="flex items-center justify-center w-16 h-16 shadow-xl bg-gradient-to-r rounded-3xl from-dark-600 to-dark-700"
+                  >
+                    <!-- TablerIcon name: triangle -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-8 h-8 text-dark-300"
+                      width="44"
+                      height="44"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path
+                        d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75"
+                      />
+                    </svg>
+                  </div>
+                  <h4 class="mt-4 text-2xl font-semibold text-white">
+                    Service Six
+                  </h4>
+                  <p
+                    class="max-w-sm mt-1 text-lg leading-relaxed text-dark-300"
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, do
+                    eius mod tempor.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Diagonal section separator -->
+      <div class="relative w-full h-16 md:h-32 bg-dark-900">
+        <svg
+          class="absolute w-full h-full text-dark-800"
+          preserveaspectratio="none"
+          viewbox="0 0 100 100"
+          fill="currentcolor"
+        >
+          <polygon points="0,100 100,100 100,0" />
+        </svg>
+      </div>
+
+      <!-- Alternating features with list -->
+      <section
+        class="px-4 pt-10 pb-12 md:pt-12 sm:pb-16 bg-dark-800 sm:px-6 lg:px-8"
+      >
+        <!-- Features container -->
+        <div class="max-w-screen-xl mx-auto">
+          <!-- Feature -->
+          <div
+            class="relative lg:grid lg:grid-cols-2 lg:auto-rows-max lg:gap-x-12"
+          >
+            <!-- Feature text with list -->
+            <div
+              class="flex flex-col items-center justify-center lg:items-start"
+            >
+              <div class="w-full text-center lg:text-left">
+                <p
+                  class="inline-flex items-center justify-center px-6 py-2 text-sm font-medium tracking-wide text-white rounded-r-full rounded-tl-full bg-gradient-to-r from-dark-600 to-dark-700"
+                >
+                  Cool feature
+                </p>
+              </div>
+              <div
+                class="w-full max-w-lg mt-4 text-center lg:mt-6 lg:text-left sm:max-w-2xl"
+              >
+                <h3
+                  class="text-3xl font-extrabold text-white sm:text-4xl md:text-5xl"
+                >
+                  Let’s make your product a success
+                </h3>
+                <p class="mx-auto mt-4 text-xl lg:mt-6 text-dark-300">
+                  anim aute id magna aliqua ad ad non deserunt sunt. qui irure
+                  qui lorem cupidatat commodo. elit sunt amet fugiat veniam
+                  occaecat fugiat aliqua.
+                </p>
+              </div>
+
+              <div class="mt-6 space-y-2 lg:mt-8">
+                <div class="flex items-center text-lg text-dark-300">
+                  <!-- TablerIcon name: checks -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="mr-2 w-7 h-7"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      class="text-dark-100"
+                      stroke="currentColor"
+                      d="M7 12l5 5l10 -10"
+                    />
+                    <path
+                      class="text-dark-600"
+                      stroke="currentColor"
+                      d="M2 12l5 5m5 -5l5 -5"
+                    />
+                  </svg>
+                  Lorem ipsum dolor sit amet.
+                </div>
+                <div class="flex items-center text-lg text-dark-300">
+                  <!-- TablerIcon name: checks -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="mr-2 w-7 h-7"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      class="text-dark-100"
+                      stroke="currentColor"
+                      d="M7 12l5 5l10 -10"
+                    />
+                    <path
+                      class="text-dark-600"
+                      stroke="currentColor"
+                      d="M2 12l5 5m5 -5l5 -5"
+                    />
+                  </svg>
+                  Lorem ipsum dolor sit amet.
+                </div>
+                <div class="flex items-center text-lg text-dark-300">
+                  <!-- TablerIcon name: checks -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="mr-2 w-7 h-7"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      class="text-dark-100"
+                      stroke="currentColor"
+                      d="M7 12l5 5l10 -10"
+                    />
+                    <path
+                      class="text-dark-600"
+                      stroke="currentColor"
+                      d="M2 12l5 5m5 -5l5 -5"
+                    />
+                  </svg>
+                  Lorem ipsum dolor sit amet.
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature image -->
+            <div
+              class="relative flex items-center justify-center max-w-lg mx-auto mt-10 lg:mt-0 lg:max-w-none"
+            >
+              <div
+                class="absolute w-full h-full rounded-3xl bg-dark-700 2xl:left-10 2xl:top-10 lg:top-4 lg:left-4 sm:top-8 sm:left-8"
+              >
+                <svg
+                  class="absolute inset-y-0 top-0 z-20 w-1/4 h-full right-1/4 text-dark-700"
+                  preserveaspectratio="none"
+                  viewbox="0 0 100 100"
+                  fill="currentcolor"
+                >
+                  <polygon points="0,0 100,0 0,100" />
+                </svg>
+                <div
+                  class="absolute inset-y-0 z-10 w-1/2 h-full left-1/2 bg-dark-900 rounded-r-3xl"
+                ></div>
+              </div>
+              <img
+                src="images/features-alternating-with-list-01.jpg"
+                class="z-30 object-cover w-auto h-full shadow-xl rounded-3xl"
+              />
+            </div>
+          </div>
+
+          <!-- Feature -->
+          <div
+            class="relative mt-24 lg:mt-32 lg:grid lg:grid-cols-2 lg:auto-rows-max lg:gap-x-12"
+          >
+            <!-- Feature text with list -->
+            <div
+              class="flex flex-col items-center justify-center lg:order-2 lg:items-start"
+            >
+              <div class="w-full text-center lg:text-left">
+                <p
+                  class="inline-flex items-center justify-center px-6 py-2 text-sm font-medium tracking-wide text-white rounded-r-full rounded-tl-full bg-gradient-to-r from-dark-600 to-dark-700"
+                >
+                  Awesome feature
+                </p>
+              </div>
+              <div
+                class="w-full max-w-lg mt-4 text-center lg:mt-6 lg:text-left sm:max-w-2xl"
+              >
+                <h3
+                  class="text-3xl font-extrabold text-white sm:text-4xl md:text-5xl"
+                >
+                  Let’s make your product a success
+                </h3>
+                <p class="mx-auto mt-4 text-xl lg:mt-6 text-dark-300">
+                  anim aute id magna aliqua ad ad non deserunt sunt. qui irure
+                  qui lorem cupidatat commodo. elit sunt amet fugiat veniam
+                  occaecat fugiat aliqua.
+                </p>
+              </div>
+              <div class="mt-6 space-y-2 lg:mt-8">
+                <div class="flex items-center text-lg text-dark-300">
+                  <!-- TablerIcon name: checks -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="mr-2 w-7 h-7"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      class="text-dark-100"
+                      stroke="currentColor"
+                      d="M7 12l5 5l10 -10"
+                    />
+                    <path
+                      class="text-dark-600"
+                      stroke="currentColor"
+                      d="M2 12l5 5m5 -5l5 -5"
+                    />
+                  </svg>
+                  Lorem ipsum dolor sit amet.
+                </div>
+                <div class="flex items-center text-lg text-dark-300">
+                  <!-- TablerIcon name: checks -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="mr-2 w-7 h-7"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      class="text-dark-100"
+                      stroke="currentColor"
+                      d="M7 12l5 5l10 -10"
+                    />
+                    <path
+                      class="text-dark-600"
+                      stroke="currentColor"
+                      d="M2 12l5 5m5 -5l5 -5"
+                    />
+                  </svg>
+                  Lorem ipsum dolor sit amet.
+                </div>
+                <div class="flex items-center text-lg text-dark-300">
+                  <!-- TablerIcon name: checks -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="mr-2 w-7 h-7"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      class="text-dark-100"
+                      stroke="currentColor"
+                      d="M7 12l5 5l10 -10"
+                    />
+                    <path
+                      class="text-dark-600"
+                      stroke="currentColor"
+                      d="M2 12l5 5m5 -5l5 -5"
+                    />
+                  </svg>
+                  Lorem ipsum dolor sit amet.
+                </div>
+              </div>
+            </div>
+
+            <!-- Feature image -->
+            <div
+              class="relative flex items-center justify-center max-w-lg mx-auto mt-10 lg:order-1 lg:mt-0 lg:max-w-none"
+            >
+              <div
+                class="absolute w-full h-full rounded-3xl bg-dark-700 2xl:right-10 2xl:top-10 lg:top-4 lg:right-4 sm:top-8 sm:right-8"
+              >
+                <svg
+                  class="absolute inset-y-0 top-0 z-20 w-1/4 h-full right-1/4 text-dark-700"
+                  preserveaspectratio="none"
+                  viewbox="0 0 100 100"
+                  fill="currentcolor"
+                >
+                  <polygon points="0,0 100,0 0,100" />
+                </svg>
+                <div
+                  class="absolute inset-y-0 z-10 w-1/2 h-full left-1/2 bg-dark-900 rounded-r-3xl"
+                ></div>
+              </div>
+              <img
+                src="images/features-alternating-with-list-02.jpg"
+                class="z-30 object-cover w-auto h-full shadow-xl rounded-3xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process section wrapper -->
+      <div
+        class="pt-12 pb-12 bg-gradient-to-b md:pt-16 md:pb-16 lg:pt-28 from-dark-800 to-dark-900"
+      >
+        <section class="w-full max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+          <!-- Section text -->
+          <div
+            class="w-full max-w-xl mx-auto text-center lg:max-w-3xl md:max-w-2xl"
+          >
+            <p
+              class="inline-flex items-center justify-center px-6 py-2 text-sm font-medium tracking-wide text-white rounded-r-full rounded-tl-full bg-gradient-to-r from-dark-600 to-dark-700"
+            >
+              Our process
+            </p>
+            <h2
+              class="mt-6 text-3xl font-extrabold text-white sm:text-4xl md:text-5xl"
+            >
+              Experience our simple design process
+            </h2>
+            <p class="mt-6 text-xl text-dark-300">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+              sapien massa, convallis a pellentesque nec.
+            </p>
+          </div>
+
+          <!-- Process steps -->
+          <div
+            class="grid max-w-xl gap-10 mx-auto mt-12 lg:mt-16 lg:grid-cols-3 lg:gap-x-12 lg:max-w-none"
+          >
+            <!-- Step-->
+            <div class="w-full">
+              <span
+                class="flex items-center justify-center mx-auto shadow-xl bg-gradient-to-r rounded-3xl w-18 h-18 from-dark-600 to-dark-700"
+              >
+                <!-- TablerIcon name: clipboard-list -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-10 h-10 text-dark-300"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"
+                  />
+                  <rect x="9" y="3" width="6" height="4" rx="2" />
+                  <line x1="9" y1="12" x2="9.01" y2="12" />
+                  <line x1="13" y1="12" x2="15" y2="12" />
+                  <line x1="9" y1="16" x2="9.01" y2="16" />
+                  <line x1="13" y1="16" x2="15" y2="16" />
+                </svg>
+              </span>
+              <h3 class="mt-5 text-2xl font-semibold text-center text-white">
+                1. Collect Ideas
+              </h3>
+              <p class="mt-2 text-lg leading-relaxed text-center text-dark-300">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, do
+                eius mod tempor incididunt.
+              </p>
+            </div>
+
+            <!-- Step -->
+            <div class="w-full">
+              <span
+                class="flex items-center justify-center mx-auto shadow-xl bg-gradient-to-r rounded-3xl w-18 h-18 from-dark-600 to-dark-700"
+              >
+                <!-- TablerIcon name: artboard -->
+                <svg
+                  class="w-10 h-10 text-dark-300"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <rect x="8" y="8" width="8" height="8" rx="1" />
+                  <line x1="3" y1="8" x2="4" y2="8" />
+                  <line x1="3" y1="16" x2="4" y2="16" />
+                  <line x1="8" y1="3" x2="8" y2="4" />
+                  <line x1="16" y1="3" x2="16" y2="4" />
+                  <line x1="20" y1="8" x2="21" y2="8" />
+                  <line x1="20" y1="16" x2="21" y2="16" />
+                  <line x1="8" y1="20" x2="8" y2="21" />
+                  <line x1="16" y1="20" x2="16" y2="21" />
+                </svg>
+              </span>
+
+              <h3 class="mt-5 text-2xl font-semibold text-center text-white">
+                2. Design Concept
+              </h3>
+              <p class="mt-2 text-lg leading-relaxed text-center text-dark-300">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, do
+                eius mod tempor incididunt.
+              </p>
+            </div>
+
+            <!-- Step -->
+            <div class="w-full">
+              <span
+                class="flex items-center justify-center mx-auto shadow-xl bg-gradient-to-r rounded-3xl w-18 h-18 from-dark-600 to-dark-700"
+              >
+                <!-- TablerIcon name: rocket -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-10 h-10 text-dark-300"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3"
+                  />
+                  <path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3" />
+                  <circle cx="15" cy="9" r="1" />
+                </svg>
+              </span>
+              <h3 class="mt-5 text-2xl font-semibold text-center text-white">
+                3. Finalize Product
+              </h3>
+              <p class="mt-2 text-lg leading-relaxed text-center text-dark-300">
+                lorem ipsum dolor sit amet, consectetur adipisicing elit, do
+                eius mod tempor incididunt.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- CTA -->
+      <section
+        class="max-w-screen-xl px-4 py-12 mx-auto md:py-16 sm:px-6 lg:px-8"
+      >
+        <!-- CTA card -->
+        <div class="relative py-16 rounded-3xl bg-dark-700 lg:py-20">
+          <!-- Right background diagonal -->
+          <svg
+            class="absolute inset-y-0 top-0 z-20 w-1/4 h-full right-1/4 text-dark-700"
+            preserveaspectratio="none"
+            viewbox="0 0 100 100"
+            fill="currentcolor"
+          >
+            <polygon points="0,0 100,0 0,100" />
+          </svg>
+          <div
+            class="absolute inset-y-0 z-10 w-1/2 h-full left-1/2 bg-dark-800 rounded-r-3xl"
+          ></div>
+
+          <!-- CTA content -->
+          <div
+            class="relative z-30 flex flex-col items-center justify-center px-4 mx-auto text-center sm:px-16 lg:flex-row lg:text-left"
+          >
+            <div class="max-w-lg text-2xl font-bold sm:text-4xl lg:w-1/2">
+              <h5
+                class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl"
+              >
+                Let's make something great together.
+              </h5>
+            </div>
+            <div
+              class="flex justify-center max-w-lg mt-10 lg:w-1/2 lg:mt-0 lg:justify-end"
+            >
+              <a
+                class="flex items-center justify-center w-auto px-8 py-4 text-base font-semibold leading-snug transition ease-in-out bg-white rounded-full h-14 duration-250 text-dark-900 hover:text-white focus:outline-none hover:bg-dark-900"
+                href="contact.html"
+              >
+                Let's connect
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Site footer -->
+    <footer class="px-4 py-12 md:py-16 bg-dark-900 sm:px-6 lg:px-8">
+      <div
+        class="grid gap-8 mx-auto lg:max-w-screen-xl sm:max-w-3xl md:grid-cols-3 md:gap-y-12 lg:grid-cols-4"
+      >
+        <!-- Logo and copyright text -->
+        <div class="flex flex-col lg:mx-auto">
+          <div class="flex items-center">
+            <a href="index.html" class="text-2xl font-black lg:block group">
+              <span
+                class="text-white transition duration-200 ease-in-out group-hover:text-dark-300"
+                >Crator</span
+              >
+              <span
+                class="transition duration-200 ease-in-out text-dark-300 group-hover:text-white"
+                >Studio</span
+              >
+            </a>
+          </div>
+          <div class="mt-6 text-lg md:mt-8 text-dark-300">
+            &#169; 2023 Crator Studio.
+            <br />
+            All rights reserved.
+          </div>
+        </div>
+
+        <!-- Contact information -->
+        <div class="lg:mx-auto">
+          <h6 class="text-xl font-semibold text-white">Get in touch</h6>
+          <p class="mt-2 text-lg text-dark-300">
+            123 West Kanye Street
+            <br />Los Angeles, CA 90001
+          </p>
+          <p class="mt-6 text-lg text-dark-300">(123) 456-789</p>
+          <p class="text-lg text-dark-300">hello@crator.com</p>
+        </div>
+
+        <!-- Site links -->
+        <div class="lg:mx-auto">
+          <h6 class="text-xl font-semibold text-white">Company</h6>
+          <ul class="mt-2 space-y-1 text-lg">
+            <li class="font-medium text-dark-300 hover:text-white">
+              <a href="index.html"> Home </a>
+            </li>
+            <li class="font-medium text-dark-300 hover:text-white">
+              <a href="about.html"> About us </a>
+            </li>
+            <li class="font-medium text-dark-300 hover:text-white">
+              <a href="services.html"> Services </a>
+            </li>
+            <li class="font-medium text-dark-300 hover:text-white">
+              <a href="work.html"> Work </a>
+            </li>
+            <li class="font-medium text-dark-300 hover:text-white">
+              <a href="contact.html"> Contact us </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Social links -->
+        <div class="sm:col-span-3 lg:col-span-1 lg:mx-auto">
+          <h6 class="text-xl font-semibold text-white">
+            Follow us on social media
+          </h6>
+          <p class="mt-2 text-lg text-dark-300">
+            Lorem ipsum dolor sit amet consect adipis elit.
+          </p>
+          <div class="w-full mt-4 lg:mt-6">
+            <!-- Social links container -->
+            <div class="flex justify-start space-x-4">
+              <!-- Instagram -->
+              <a
+                class="flex items-center justify-center w-12 h-12 transition duration-300 ease-in-out rounded-full bg-dark-700 hover:text-dark-900 hover:bg-white text-dark-300"
+                href="#"
+              >
+                <!-- TablerIcon name: brand-instagram -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <rect x="4" y="4" width="16" height="16" rx="4" />
+                  <circle cx="12" cy="12" r="3" />
+                  <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+                </svg>
+              </a>
+
+              <!-- Facebook -->
+              <a
+                class="flex items-center justify-center w-12 h-12 transition duration-300 ease-in-out rounded-full bg-dark-700 hover:text-dark-900 hover:bg-white text-dark-300"
+                href="#"
+              >
+                <!-- TablerIcon name: brand-facebook -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
+                  />
+                </svg>
+              </a>
+
+              <!-- Twitter -->
+              <a
+                class="flex items-center justify-center w-12 h-12 transition duration-300 ease-in-out rounded-full bg-dark-700 hover:text-dark-900 hover:bg-white text-dark-300"
+                href="#"
+              >
+                <!-- TablerIcon name: brand-twitter -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
