@@ -57,7 +57,7 @@ function HomePage() {
             {/* Hero image */}
             <div className="flex items-center justify-center max-w-xl mx-auto mt-12 sm:mt-16 lg:mt-0 lg:max-w-none">
               <img
-                src="/public/assets/img/portrait.png"
+                src="/assets/img/portrait.png"
                 className="z-30 object-cover w-auto h-full shadow-md rounded-3xl"
               />
             </div>
@@ -264,19 +264,19 @@ function HomePage() {
             <div className="grid h-full grid-flow-col grid-rows-2 gap-4">
               <div className="row-span-2 shadow-xl rounded-3xl">
                 <img
-                  src="/public/assets/img/office-meeting.jpg"
+                  src="/assets/img/office-meeting.jpg"
                   className="object-cover  w-full h-full rounded-3xl max-w-[277px] object-[30%]"
                 />
               </div>
               <div className="shadow-xl rounded-3xl">
                 <img
-                  src="/public/assets/img/computer-desk.jpg"
+                  src="/assets/img/computer-desk.jpg"
                   className="object-cover object-center w-full h-full rounded-3xl"
                 />
               </div>
               <div className="shadow-xl rounded-3xl">
                 <img
-                  src="/public/assets/img/office-building.jpg"
+                  src="/assets/img/office-building.jpg"
                   className="object-cover object-center w-full h-full rounded-3xl"
                 />
               </div>

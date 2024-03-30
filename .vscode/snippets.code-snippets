@@ -1,0 +1,14 @@
+{
+    "React Function Boilerplate": {
+        "scope": "jsx, javascript",
+        "prefix":"fun",
+        "body": [
+            "import import PropTypes from 'prop-types';",
+            "",
+            "function ComponentName(){",
+            "",
+            "}",
+            "export default ComponentName;"
+        ]
+    }
+}
