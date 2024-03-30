@@ -5,11 +5,16 @@ import Navigation from "./components/navigation";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/homepage";
+import CaseStudy from "./pages/caseStudy";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
+  },
+  {
+    path: "/case-study/:caseStudy",
+    element: <CaseStudy />,
   },
 ]);
 

@@ -8,4 +8,10 @@
   html {
     font-family: "Inter", system-ui, sans-serif;
   }
+
+  .portfolio-case-study--copy * {
+    @apply max-w-[768px];
+    @apply mb-4;
+    @apply mx-auto;
+  }
 }

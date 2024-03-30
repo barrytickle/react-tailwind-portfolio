@@ -1,0 +1,7 @@
+During my time at Physio123, we had the problem that we had 5 international websites, all with different designs & content, and it didn't look and feel like it belonged to the same company. Taking payments for their services always happened over the phone, and customer orders were stored within an excel file.
+
+The solution I proposed was to use an MVC framework to combine all these 5 sites under one design & one platform, so that they could be managed much easier. To do this, I used Laravel to make a singular design which suited the brand based on figma designs from the client. I used Laravel's intelligent page structuring to be able to swap out to the relevant content if it exists for that page. That way, they only need to write the content once, and it will update across all variations of the site. Apart from if they do need to tweak the content for a specific country. 
+
+In addition to this, I had developed a cart system which allowed addons and a package builder. This was database driven and allowed me to create a CMS around which addons they'd like, their pricing ect. Once the customer had built their package on the client website, they could then securely complete their purchase via stripe, so card details are hidden away, subscriptions can be easily managed. 
+
+My role in this project was a singular full-stack developer, creating both the front-end and the back-end developing the front-end from scratch using HTML5, CSS3, VanillaJS. The back-end using PHP and Laravel.

@@ -1,11 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import ButtonSolidRound from "../components/buttons/buttonSolidRound";
+import CaseStudyBlock from "../components/caseStudyBlock";
+import Wrapper from "../components/wrapper";
 import SectionTriangle from "../components/sectionTriangle";
 import Technologies from "../components/technologies";
+import TitleBlock from "../components/titleBlock";
 import TriangleAfter from "../components/triangleAfter";
 import TriangleBefore from "../components/triangleBefore";
+import caseStudies from "../content/case-studies/caseStudies";
 
 function HomePage() {
+  console.log("CASE STUDIES", caseStudies);
   return (
     <main>
       {/* Hero Section */}
@@ -285,6 +290,36 @@ function HomePage() {
         </div>
       </SectionTriangle>
       <TriangleAfter />
+      <Wrapper>
+        <TitleBlock
+          subtitle={"My Work"}
+          title={"My builds and designs"}
+        />
+        <p className="mx-auto container text-center text-dark-300 max-w-[768px] my-5">
+          My projects show what I can achieve as an individual, a project should be developed with the user in mind. As
+          a web designer user interaction is one of my main aims when visiting a website, making a website look good
+          should only be the first steps of developing a system for users. Explore my thought process throughout each of
+          my projects, as this is a reflection of what I can provide for you as a service.
+        </p>
+
+        {caseStudies.map((study, ind) => {
+          console.log("study", study);
+          return (
+            <>
+              <CaseStudyBlock
+                title={study.title}
+                key={ind}
+                url={study.slug ?? study.title.toLowerCase().replace(/\s/g, "-")}
+                text={study.text}
+                tag={study.tag}
+                image={study.image}
+                site={study.site}
+                direction={ind % 2 === 0 ? "left" : "right"}
+              />
+            </>
+          );
+        })}
+      </Wrapper>
     </main>
   );
 }

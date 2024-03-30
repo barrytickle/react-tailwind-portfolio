@@ -1,7 +1,0 @@
-dist/*
-node_modules/*
-.*
-Tools/*
-**/OBF.js
-WTOTag*.js
-globals.d.ts

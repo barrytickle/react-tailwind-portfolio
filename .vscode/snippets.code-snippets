@@ -3,12 +3,19 @@
         "scope": "jsx, javascript",
         "prefix":"fun",
         "body": [
-            "import import PropTypes from 'prop-types';",
+            "import PropTypes from 'prop-types';",
             "",
             "function ComponentName(){",
             "",
             "}",
             "export default ComponentName;"
         ]
-    }
+    }, 
+     
+    "PropTypes import": {
+        "scope": "jsx, javascript",
+        "prefix":"prop",
+        "body": "import PropTypes from 'prop-types';",
+    },
 }
+
