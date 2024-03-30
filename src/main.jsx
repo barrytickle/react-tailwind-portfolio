@@ -2,25 +2,43 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import Navigation from "./components/navigation";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage from "./pages/homepage";
-import CaseStudy from "./pages/caseStudy";
+import { getCategoryFromPage } from "./helpers/helpers";
+import Template from "./pages/template";
+import { endpoint } from "./helpers/config";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/case-study/:caseStudy",
-    element: <CaseStudy />,
-  },
-]);
+console.log("MAIN", endpoint);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Navigation />
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
+const STATE = {
+  pages: [],
+};
+
+(async () => {
+  try {
+    const response = await fetch(`${endpoint}/pages/?populate=deep`);
+    const data = await response.json();
+
+    console.log("main", data);
+
+    data.data.forEach((d) => {
+      const page = d.attributes;
+      const obj = {
+        path: page.slug === "." ? "/" : page.slug,
+        element: <Template page={page} />,
+      };
+
+      STATE.pages.push(obj);
+    });
+
+    console.log(STATE.pages);
+
+    ReactDOM.createRoot(document.getElementById("root")).render(
+      <React.StrictMode>
+        <Navigation />
+        <RouterProvider router={createBrowserRouter(STATE.pages)} />
+      </React.StrictMode>
+    );
+  } catch (error) {
+    console.warn(error);
+  }
+})();

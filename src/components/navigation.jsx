@@ -1,6 +1,19 @@
+import { useEffect, useState } from "react";
 import ButtonSolidRound from "./buttons/buttonSolidRound";
-
+import { endpoint } from "../helpers/config";
 function Navigation() {
+  const [links, setLinks] = useState({});
+
+  useEffect(() => {
+    (async () => {
+      if (Object.keys(links).length > 0) return;
+      const response = await fetch(`${endpoint}/navigation?populate=*`);
+      if (response.status !== 200) return;
+      const data = await response.json();
+
+      setLinks(data.data.attributes);
+    })();
+  }, [links]);
   return (
     <header className="bg-dark-900">
       <nav className="flex items-center justify-between w-full container mx-auto px-4 py-6 max-w-7xl sm:px-6 lg:px-8">
@@ -22,31 +35,21 @@ function Navigation() {
             </a>
           </div>
           <div className="hidden md:flex justify-between items-center md:space-x-0.5 lg:space-x-2 text-xl md:text-base font-medium text-dark-300">
-            <a
-              href="/"
-              className="block px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700">
-              Home
-            </a>
-            <a
-              href="/"
-              className="block px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700">
-              About Me
-            </a>
-            <a
-              href="/"
-              className="block px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700">
-              Portfolio
-            </a>
-            <a
-              href="/"
-              className="block px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700">
-              Blog
-            </a>
+            {links?.URL?.map((link, ind) => {
+              return (
+                <a
+                  href={link.Link}
+                  key={ind}
+                  className="block px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700">
+                  {link.Label}
+                </a>
+              );
+            })}
           </div>
           <div className="hidden md:block">
             <ButtonSolidRound
-              text={`Contact me`}
-              url={"/contact-me"}
+              text={links?.cta_link?.label}
+              url={links?.cta_link?.url}
             />
           </div>
         </div>
