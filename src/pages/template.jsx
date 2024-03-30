@@ -1,7 +1,3 @@
-/* eslint-disable react/prop-types */
-import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
-import { endpoint } from "../helpers/config";
 import Hero from "../components/Hero";
 import Wrapper from "../components/wrapper";
 
