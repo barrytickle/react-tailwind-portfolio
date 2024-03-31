@@ -18,8 +18,6 @@ const STATE = {
     const response = await fetch(`${endpoint}/pages/?populate=deep`);
     const data = await response.json();
 
-    console.log("main", data);
-
     data.data.forEach((d) => {
       const page = d.attributes;
       const obj = {
@@ -29,8 +27,6 @@ const STATE = {
 
       STATE.pages.push(obj);
     });
-
-    console.log(STATE.pages);
 
     ReactDOM.createRoot(document.getElementById("root")).render(
       <React.StrictMode>

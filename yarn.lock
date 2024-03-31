@@ -1224,6 +1224,13 @@
   "resolved" "https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz"
   "version" "2.0.3"
 
+"external-svg-loader@^1.7.1":
+  "integrity" "sha512-aoar7PRXhy+hNgp49Xh2rsI+9CS65IqlLc9z2CmRM5eTQdA3H/S4QkIYVT5dH5Nf0r81d/424rHYEyC3qjPvHw=="
+  "resolved" "https://registry.npmjs.org/external-svg-loader/-/external-svg-loader-1.7.1.tgz"
+  "version" "1.7.1"
+  dependencies:
+    "idb-keyval" "^6.2.0"
+
 "fast-deep-equal@^3.1.1", "fast-deep-equal@^3.1.3":
   "integrity" "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q=="
   "resolved" "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz"
@@ -1483,6 +1490,11 @@
   "version" "2.0.2"
   dependencies:
     "function-bind" "^1.1.2"
+
+"idb-keyval@^6.2.0":
+  "integrity" "sha512-8Sb3veuYCyrZL+VBt9LJfZjLUPWVvqn8tG28VqYNFCo43KHcKuq+b4EiXGeuaLAQWL2YmyDgMp2aSpH9JHsEQg=="
+  "resolved" "https://registry.npmjs.org/idb-keyval/-/idb-keyval-6.2.1.tgz"
+  "version" "6.2.1"
 
 "ignore@^5.2.0":
   "integrity" "sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw=="
