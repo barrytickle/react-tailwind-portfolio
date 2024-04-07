@@ -1,6 +1,3 @@
-/* eslint-disable react/prop-types */
-import PropTypes from "prop-types";
-
 import ButtonSolidRound from "./buttons/buttonSolidRound";
 import ButtonAnimated from "./buttons/buttonAnimated";
 import { url } from "../helpers/config";
@@ -39,7 +36,7 @@ function Hero({ details }) {
             </div>
             {/* Hero buttons */}
             <div className="z-30 mt-10 sm:flex sm:justify-center lg:justify-start">
-              {details.buttons.map((button, ind) => {
+              {details?.buttons?.map((button, ind) => {
                 if (button.Style === "white_round")
                   return (
                     <ButtonSolidRound
