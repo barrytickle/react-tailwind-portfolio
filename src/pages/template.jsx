@@ -1,6 +1,18 @@
 import Hero from "../components/Hero";
 import Technologies from "../components/technologies";
 import Wrapper from "../components/wrapper";
+import TriangleBefore from "../components/triangleBefore";
+import TriangleAfter from "../components/triangleAfter";
+import SectionTriangle from "../components/sectionTriangle";
+import Services from "../components/services";
+
+let isTriangleSection = false;
+
+const parseComponent = (component) => {
+  if (isTriangleSection) return <SectionTriangle>{component}</SectionTriangle>;
+
+  return component;
+};
 
 function Template({ page }) {
   if (Object.keys(page).length === 0) return <h1 className="text-dark-400 text-2xl">error: Page not found</h1>;
@@ -18,8 +30,14 @@ function Template({ page }) {
     page.blocks.map((block) => {
       const { __component } = block;
 
-      if (__component === "components.hero") components.push(<Hero details={block} />);
-      if (__component === "components.technologies") components.push(<Technologies details={block} />);
+      if (__component === "components.triangle-section") {
+        isTriangleSection = block.type === "start";
+        components.push(block.type === "start" ? <TriangleBefore /> : <TriangleAfter />);
+      }
+
+      if (__component === "components.hero") components.push(parseComponent(<Hero details={block} />));
+      if (__component === "components.technologies") components.push(parseComponent(<Technologies details={block} />));
+      if (__component === "components.services") components.push(parseComponent(<Services details={block} />));
     });
   }
 

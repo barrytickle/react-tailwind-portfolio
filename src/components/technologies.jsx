@@ -25,24 +25,24 @@ function Technologies({ details }) {
       <div className="grid grid-cols-2 gap-4 md:gap-6 sm:grid-cols-3 technology-images">
         {/* Item */}
 
-        {details.images.map((img, ind) => {
-          const image = img.image.data.attributes;
+        {details.images.data.map((img, ind) => {
+          const image = img?.attributes;
 
           console.log("Tech image", image);
 
           let tag = "";
-          if (image.ext === ".svg") {
+          if (image?.ext === ".svg") {
             tag = (
               <svg
                 // eslint-disable-next-line react/no-unknown-property
-                data-src={`${url}${image.url}`}
+                data-src={`${url}${image?.url}`}
                 fill="currentColor"
                 height="100px"
               />
             );
+          } else {
+            tag = <img src={`${url}${image?.url}`} />;
           }
-
-          console.log("TAG", tag);
 
           return (
             <div
