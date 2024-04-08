@@ -1,6 +1,6 @@
 import ButtonSolidRound from "./buttons/buttonSolidRound";
 
-function CaseStudyBlock({ direction, image, url, tag, text, title, site }) {
+function 3CaseStudyBlock({ direction, image, url, tag, text, title, site }) {
   console.log(direction, image, url, tag, text, title);
   return (
     <div className="relative max-w-lg mx-auto lg:max-w-none lg:mx-none lg:mb-[280px]">

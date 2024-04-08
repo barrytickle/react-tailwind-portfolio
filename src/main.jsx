@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Navigation from "./components/navigation";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { getCategoryFromPage } from "./helpers/helpers";
 import Template from "./pages/template";
 import { endpoint } from "./helpers/config";
 
@@ -15,18 +14,19 @@ const STATE = {
 
 (async () => {
   try {
-    const response = await fetch(`${endpoint}/pages/?populate=deep`);
+    const response = await fetch(`${endpoint}/pages/`);
     const data = await response.json();
 
-    data.data.forEach((d) => {
-      const page = d.attributes;
+    data.forEach((page) => {
       const obj = {
-        path: page.slug === "." ? "/" : page.slug,
-        element: <Template page={page} />,
+        path: page.slug === "homepage" ? "/" : page.slug,
+        element: <Template page={page.blocks} />,
       };
 
       STATE.pages.push(obj);
     });
+
+    console.log(STATE);
 
     ReactDOM.createRoot(document.getElementById("root")).render(
       <React.StrictMode>

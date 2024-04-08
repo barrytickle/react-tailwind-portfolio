@@ -1,13 +1,42 @@
 import ButtonSolidRound from "./buttons/buttonSolidRound";
 import ButtonAnimated from "./buttons/buttonAnimated";
-import { url } from "../helpers/config";
+
+function HeroButtons({ show, buttons }) {
+  if (!show) return;
+  console.log("HERO BUTTONS", buttons);
+
+  return (
+    <>
+      <div className="z-30 mt-10 sm:flex sm:justify-center lg:justify-start">
+        {buttons[0]?.map((button, ind) => {
+          console.log("BUTTON", button);
+          if (button?.button_type?.includes("white_round"))
+            return (
+              <ButtonSolidRound
+                key={ind}
+                url={button.button_url}
+                text={button.button_text}
+              />
+            );
+
+          if (button?.button_type?.includes("animated_circle"))
+            return (
+              <ButtonAnimated
+                key={ind}
+                url={button.button_url}
+                text={button.button_text}
+              />
+            );
+        })}
+      </div>
+    </>
+  );
+}
 
 function Hero({ details }) {
+  console.log("DETAILS", details);
   const { tag, title, content } = details;
 
-  console.log("DETAILS", details);
-
-  console.log("HERO", tag, title, content);
   return (
     <section className="px-4 pt-6 pb-12 mx-auto max-w-screen-2xl md:pb-16 sm:px-6 lg:px-8">
       <div className="relative shadow-xl rounded-3xl sm:overflow-hidden bg-dark-700">
@@ -32,36 +61,23 @@ function Hero({ details }) {
               <h1 className="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
                 {title}
               </h1>
-              <p className="mt-6 text-xl text-dark-300">{content}</p>
-            </div>
-            {/* Hero buttons */}
-            <div className="z-30 mt-10 sm:flex sm:justify-center lg:justify-start">
-              {details?.buttons?.map((button, ind) => {
-                if (button.Style === "white_round")
-                  return (
-                    <ButtonSolidRound
-                      key={ind}
-                      url={button.URL}
-                      text={button.Label}
-                    />
-                  );
+              <p
+                className="mt-6 text-xl text-dark-300"
+                dangerouslySetInnerHTML={{ __html: content }}
+              />
+              {/* Hero buttons */}
 
-                if (button.Style === "animated_circle")
-                  return (
-                    <ButtonAnimated
-                      key={ind}
-                      url={button.URL}
-                      text={button.Label}
-                    />
-                  );
-              })}
+              <HeroButtons
+                show={details.show_buttons === "1"}
+                buttons={details.buttons_group}
+              />
             </div>
           </div>
 
           {/* Hero image */}
           <div className="flex items-center justify-center max-w-xl mx-auto mt-12 sm:mt-16 lg:mt-0 lg:max-w-none">
             <img
-              src={url + details?.featuredimage?.data?.attributes?.formats?.medium?.url}
+              src={details?.featured_image?.large}
               className="z-30 object-cover w-auto h-full shadow-md rounded-3xl"
             />
           </div>

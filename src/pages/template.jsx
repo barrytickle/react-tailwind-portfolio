@@ -18,26 +18,29 @@ function Template({ page }) {
   if (Object.keys(page).length === 0) return <h1 className="text-dark-400 text-2xl">error: Page not found</h1>;
   let components = [];
 
-  console.log("BLOCKS", page.blocks);
+  console.log("BLOCKS", page);
 
-  if (page?.blocks?.length === 0) {
+  if (page.length === 0 || page.filter((p) => p.attrs?.name?.includes("acf")).length === 0) {
     return (
       <Wrapper>
         <h1 className="text-dark-400 text-2xl text-center mx-auto block">{page.Name}</h1>
       </Wrapper>
     );
   } else {
-    page.blocks.map((block) => {
-      const { __component } = block;
+    page.map((block) => {
+      const { blockName } = block;
 
-      if (__component === "components.triangle-section") {
-        isTriangleSection = block.type === "start";
-        components.push(block.type === "start" ? <TriangleBefore /> : <TriangleAfter />);
+      const data = block?.attrs?.data;
+      if (!data) return;
+
+      if (blockName === "acf/triangle-section") {
+        isTriangleSection = data.type === "start";
+        components.push(data.type === "start" ? <TriangleBefore /> : <TriangleAfter />);
       }
 
-      if (__component === "components.hero") components.push(parseComponent(<Hero details={block} />));
-      if (__component === "components.technologies") components.push(parseComponent(<Technologies details={block} />));
-      if (__component === "components.services") components.push(parseComponent(<Services details={block} />));
+      if (blockName === "acf/hero-banner-standard") components.push(parseComponent(<Hero details={data} />));
+      if (blockName === "acf/technologies") components.push(parseComponent(<Technologies details={data} />));
+      if (blockName === "acf/services") components.push(parseComponent(<Services details={data} />));
     });
   }
 
