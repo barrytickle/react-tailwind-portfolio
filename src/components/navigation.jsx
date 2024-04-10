@@ -14,6 +14,7 @@ function Navigation() {
       setLinks(data.data.attributes);
     })();
   }, [links]);
+
   return (
     <header className="bg-dark-900">
       <nav className="flex items-center justify-between w-full container mx-auto px-4 py-6 max-w-7xl sm:px-6 lg:px-8">
@@ -35,13 +36,13 @@ function Navigation() {
             </a>
           </div>
           <div className="hidden md:flex justify-between items-center md:space-x-0.5 lg:space-x-2 text-xl md:text-base font-medium text-dark-300">
-            {links?.URL?.map((link, ind) => {
+            {links?.navigationUrls?.map((link, ind) => {
               return (
                 <a
-                  href={link.Link}
+                  href={link.link}
                   key={ind}
                   className="block px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700">
-                  {link.Label}
+                  {link.label}
                 </a>
               );
             })}

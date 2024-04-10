@@ -36,22 +36,22 @@ function Hero({ details }) {
             </div>
             {/* Hero buttons */}
             <div className="z-30 mt-10 sm:flex sm:justify-center lg:justify-start">
-              {details?.buttons?.map((button, ind) => {
-                if (button.Style === "white_round")
+              {details?.button?.map((button, ind) => {
+                if (button.style === "whiteRound")
                   return (
                     <ButtonSolidRound
                       key={ind}
-                      url={button.URL}
-                      text={button.Label}
+                      url={button.url}
+                      text={button.label}
                     />
                   );
 
-                if (button.Style === "animated_circle")
+                if (button.style === "animatedCircle")
                   return (
                     <ButtonAnimated
                       key={ind}
-                      url={button.URL}
-                      text={button.Label}
+                      url={button.url}
+                      text={button.label}
                     />
                   );
               })}
@@ -61,7 +61,7 @@ function Hero({ details }) {
           {/* Hero image */}
           <div className="flex items-center justify-center max-w-xl mx-auto mt-12 sm:mt-16 lg:mt-0 lg:max-w-none">
             <img
-              src={url + details?.featuredimage?.data?.attributes?.formats?.medium?.url}
+              src={url + details?.featuredImage?.data?.attributes?.formats?.small?.url}
               className="z-30 object-cover w-auto h-full shadow-md rounded-3xl"
             />
           </div>

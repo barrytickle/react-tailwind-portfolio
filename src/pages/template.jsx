@@ -5,6 +5,7 @@ import TriangleBefore from "../components/triangleBefore";
 import TriangleAfter from "../components/triangleAfter";
 import SectionTriangle from "../components/sectionTriangle";
 import Services from "../components/services";
+import LargeText from "../components/largeText";
 
 let isTriangleSection = false;
 
@@ -31,13 +32,14 @@ function Template({ page }) {
       const { __component } = block;
 
       if (__component === "components.triangle-section") {
-        isTriangleSection = block.type === "start";
-        components.push(block.type === "start" ? <TriangleBefore /> : <TriangleAfter />);
+        isTriangleSection = block.position === "start";
+        components.push(block.position === "start" ? <TriangleBefore /> : <TriangleAfter />);
       }
 
-      if (__component === "components.hero") components.push(parseComponent(<Hero details={block} />));
+      if (__component === "components.hero-standard") components.push(parseComponent(<Hero details={block} />));
       if (__component === "components.technologies") components.push(parseComponent(<Technologies details={block} />));
       if (__component === "components.services") components.push(parseComponent(<Services details={block} />));
+      if (__component === "components.large-text") components.push(parseComponent(<LargeText details={block} />));
     });
   }
 
