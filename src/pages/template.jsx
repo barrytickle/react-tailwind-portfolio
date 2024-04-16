@@ -6,6 +6,7 @@ import TriangleAfter from "../components/triangleAfter";
 import SectionTriangle from "../components/sectionTriangle";
 import Services from "../components/services";
 import LargeText from "../components/largeText";
+import CaseStudyHero from "../components/caseStudyHero";
 
 let isTriangleSection = false;
 
@@ -40,6 +41,8 @@ function Template({ page }) {
       if (__component === "components.technologies") components.push(parseComponent(<Technologies details={block} />));
       if (__component === "components.services") components.push(parseComponent(<Services details={block} />));
       if (__component === "components.large-text") components.push(parseComponent(<LargeText details={block} />));
+      if (__component === "components.case-study-header")
+        components.push(parseComponent(<CaseStudyHero details={block} />));
     });
   }
 

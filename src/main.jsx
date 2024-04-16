@@ -19,13 +19,22 @@ const STATE = {
     const data = await response.json();
 
     data.data.forEach((d) => {
+      // console.log("Category", d.attributes.category);
+
+      const category = d?.attributes?.category?.data?.attributes;
+
+      // console.log("category", category);
+
       const page = d.attributes;
+      const slug = page.slug === "." ? "/" : page.slug;
       const obj = {
-        path: page.slug === "." ? "/" : page.slug,
+        path: category.slug !== "page" ? `/${category.slug}/${slug}` : slug,
         element: <Template page={page} />,
       };
 
       STATE.pages.push(obj);
+
+      console.log("Pages", createBrowserRouter(STATE.pages));
     });
 
     ReactDOM.createRoot(document.getElementById("root")).render(
