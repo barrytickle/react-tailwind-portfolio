@@ -50,18 +50,7 @@ function CaseStudyHero({ details }) {
 
           {/* Hero image */}
           <div className="mx-auto mt-12 shadow-xl rounded-3xl lg:mt-16 aspect-w-2 aspect-h-1">
-            <img
-<<<<<<< HEAD
-              className="inset-0 object-cover object-center w-full h-full align-middle rounded-3xl h-[640px]"
-=======
-<<<<<<< HEAD
-              className="inset-0 object-cover object-center w-full align-middle rounded-3xl h-[640px]"
-=======
-              className="inset-0 object-cover object-center w-full h-full align-middle rounded-3xl h-[640px]"
->>>>>>> 7ebc763 (Added support for case studies)
->>>>>>> fa0ce6e (Added support for case studies)
-              src={url + details.featuredImage?.data?.attributes?.formats?.large?.url}
-            />
+            <img src={url + details.featuredImage?.data?.attributes?.formats?.large?.url} />
           </div>
         </div>
       </section>

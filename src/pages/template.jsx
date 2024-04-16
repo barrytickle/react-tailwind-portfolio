@@ -60,6 +60,7 @@ function Template(props) {
       if (__component === "components.case-study-header")
         components.push(parseComponent(<CaseStudyHero details={block} />));
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
       if (__component === "components.featured-case-studies")
@@ -71,6 +72,8 @@ function Template(props) {
 =======
 >>>>>>> 7ebc763 (Added support for case studies)
 >>>>>>> fa0ce6e (Added support for case studies)
+=======
+>>>>>>> f61d1ca (Added support for case studies)
     });
 
     // components.push()
