@@ -7,6 +7,7 @@ import SectionTriangle from "../components/sectionTriangle";
 import Services from "../components/services";
 import LargeText from "../components/largeText";
 import CaseStudyHero from "../components/caseStudyHero";
+import Timeline from "../components/timeline";
 
 let isTriangleSection = false;
 
@@ -44,6 +45,8 @@ function Template({ page }) {
       if (__component === "components.case-study-header")
         components.push(parseComponent(<CaseStudyHero details={block} />));
     });
+
+    components.push(parseComponent(<Timeline />));
   }
 
   return components.map((Comp, i) => <div key={i}>{Comp}</div>);
