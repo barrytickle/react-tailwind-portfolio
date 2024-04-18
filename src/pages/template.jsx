@@ -10,6 +10,10 @@ import CaseStudyHero from "../components/caseStudyHero";
 // import Timeline from "../components/timeline";
 import FeaturedCaseStudies from "../components/featuredCaseStudies";
 
+import SingularTestimonial from "../components/singularTestimonial";
+
+// https://display.framer.website/
+
 let isTriangleSection = false;
 
 const parseComponent = (component) => {
@@ -48,6 +52,8 @@ function Template({ page }) {
       if (__component === "components.featured-case-studies")
         components.push(parseComponent(<FeaturedCaseStudies details={block} />));
     });
+
+    // components.push()
   }
 
   return components.map((Comp, i) => <div key={i}>{Comp}</div>);

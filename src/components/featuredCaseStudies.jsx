@@ -2,7 +2,6 @@ import ButtonSolidRound from "./buttons/buttonSolidRound";
 import { url } from "../helpers/config";
 
 function FeaturedCaseStudies({ details }) {
-  console.log("Featured Details", details, details.pages.data);
   return (
     <section className="px-4 pt-12 pb-10 md:pb-12 md:pt-16  sm:px-6 lg:px-8">
       <div className="w-full max-w-screen-xl mx-auto">

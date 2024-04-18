@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { getCategoryFromPage } from "./helpers/helpers";
 import Template from "./pages/template";
 import { endpoint } from "./helpers/config";
+import Footer from "./components/footer";
 
 console.log("MAIN", endpoint);
 
@@ -41,6 +42,7 @@ const STATE = {
       <React.StrictMode>
         <Navigation />
         <RouterProvider router={createBrowserRouter(STATE.pages)} />
+        <Footer />
       </React.StrictMode>
     );
   } catch (error) {
