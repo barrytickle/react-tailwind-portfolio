@@ -5,7 +5,6 @@ function Services(props) {
 
   const generateImages = () => {
     const images = details?.images?.data;
-    console.log("Services images", images);
     return (
       <>
         <div className="row-span-2 shadow-xl rounded-3xl">

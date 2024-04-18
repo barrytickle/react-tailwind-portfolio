@@ -5,9 +5,6 @@ import { url } from "../helpers/config";
 function Hero({ details }) {
   const { tag, title, content } = details;
 
-  console.log("DETAILS", details);
-
-  console.log("HERO", tag, title, content);
   return (
     <section className="px-4 pt-6 pb-12 mx-auto max-w-screen-2xl md:pb-16 sm:px-6 lg:px-8">
       <div className="relative shadow-xl rounded-3xl sm:overflow-hidden bg-dark-700">
