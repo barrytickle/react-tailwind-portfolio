@@ -5,6 +5,8 @@ import { url } from "../helpers/config";
 function Hero({ details }) {
   const { tag, title, content } = details;
 
+  console.log("Hero", details);
+
   return (
     <section className="px-4 pt-6 pb-12 mx-auto max-w-screen-2xl md:pb-16 sm:px-6 lg:px-8">
       <div className="relative shadow-xl rounded-3xl sm:overflow-hidden bg-dark-700">
@@ -58,7 +60,7 @@ function Hero({ details }) {
           {/* Hero image */}
           <div className="flex items-center justify-center max-w-xl mx-auto mt-12 sm:mt-16 lg:mt-0 lg:max-w-none">
             <img
-              src={url + details?.featuredImage?.data?.attributes?.formats?.small?.url}
+              src={url + details?.featuredImage?.data?.attributes?.url}
               className="z-30 object-cover w-auto h-full shadow-md rounded-3xl"
             />
           </div>
