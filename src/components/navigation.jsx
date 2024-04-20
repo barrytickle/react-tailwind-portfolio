@@ -22,12 +22,12 @@ function Navigation() {
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center">
             {/* Main Logo */}
-            <a
-              href="/"
+            <Link
+              to="/"
               className="block text-2xl font-black md:hidden lg:block group">
               <span className="text-white transition duration-200 ease-in-out group-hover:text-dark-300">Barry</span>
               <span className="transition duration-200 ease-in-out text-dark-300 group-hover:text-white">Tickle</span>
-            </a>
+            </Link>
             {/* Condensed logo for smaller screens  */}
             <a
               href="/"

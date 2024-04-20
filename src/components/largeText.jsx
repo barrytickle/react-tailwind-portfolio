@@ -25,7 +25,7 @@ export default function LargeText({ details }) {
             <div className="flex flex-wrap w-full mx-auto mt-6 text-center">
               <div className="w-full mx-auto lg:w-4/5">
                 <p
-                  className={`text-2xl font-medium tracking-tight text-white sm:text-3xl lg:text-4xl lg:leading-tight ${positionMap[details.position] ?? ""}`}>
+                  className={`text-2xl text-dark-300 font-light tracking-tight sm:text-3xl lg:text-4xl lg:leading-tight ${positionMap[details.position] ?? ""}`}>
                   {details.content}
                 </p>
               </div>
