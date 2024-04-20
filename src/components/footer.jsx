@@ -7,6 +7,8 @@ import CtaBlock from "./ctaBlock";
 import "external-svg-loader";
 
 import { url } from "../helpers/config";
+import { Link } from "react-router-dom";
+import { linkClicked } from "../helpers/helpers";
 
 // data-src={`${url}${image?.url}`}
 
@@ -30,16 +32,10 @@ function Footer() {
     })();
   }, [content]);
 
-  //   console.log("FOOTER", content);
-
   content?.blocks?.map((block) => {
     if (block.__component === "components.singular-testimonial") blocks.push(<SingularTestimonial details={block} />);
     if (block.__component === "components.cta-block") blocks.push(<CtaBlock details={block} />);
   });
-
-  console.log("Footer blocks", blocks);
-  console.log("Footer content", content);
-  console.log(content.footer_urls);
 
   return (
     <>
@@ -87,7 +83,12 @@ function Footer() {
                   <li
                     key={ind}
                     className="font-medium text-dark-300 hover:text-white">
-                    <a href={url.link}> {url.label} </a>
+                    <Link
+                      to={url.link}
+                      onClick={linkClicked}>
+                      {" "}
+                      {url.label}{" "}
+                    </Link>
                   </li>
                 );
               })}

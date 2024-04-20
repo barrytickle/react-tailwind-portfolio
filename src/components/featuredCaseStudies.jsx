@@ -1,5 +1,6 @@
 import ButtonSolidRound from "./buttons/buttonSolidRound";
 import { url } from "../helpers/config";
+import ButtonAnimated from "./buttons/buttonAnimated";
 
 function FeaturedCaseStudies({ details }) {
   return (
@@ -56,12 +57,10 @@ function FeaturedCaseStudies({ details }) {
                         <p className="mt-2 text-base lg:mt-4 text-dark-300 md:text-lg">{header?.description}</p>
                       </div>
                       <div className="mt-8 xl:mt-4 flex">
-                        <a
-                          className="relative inline-flex items-center justify-center w-auto h-12 px-8 text-base font-medium leading-snug text-white md:h-14 group"
-                          href={`${caseStudy.attributes?.category?.data?.attributes?.slug}/${caseStudy?.attributes?.slug}`}>
-                          <span className="absolute top-0 left-0 z-10 block w-full h-full transition-all ease-in-out rounded-full bg-gradient-to-r duration-250 from-dark-800 to-dark-900 md:w-14 md:group-hover:w-full"></span>
-                          <span className="relative z-20">Case study</span>
-                        </a>
+                        <ButtonAnimated
+                          url={`${caseStudy.attributes?.category?.data?.attributes?.slug}/${caseStudy?.attributes?.slug}`}
+                          text={"Case study"}
+                        />
 
                         <ButtonSolidRound
                           url={header?.url}

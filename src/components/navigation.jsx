@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import ButtonSolidRound from "./buttons/buttonSolidRound";
 import { endpoint } from "../helpers/config";
+import { linkClicked } from "../helpers/helpers";
 function Navigation() {
   const [links, setLinks] = useState({});
   const nav = useRef("");
@@ -34,25 +35,9 @@ function Navigation() {
     }
   };
 
-  // let timer;
-  // window.addEventListener("scroll", function () {
-  //   this.clearTimeout(timer);
-  //   timer = this.setTimeout(function () {
-  //     const { scrollY } = window;
-
-  //     if (scrollY > 150) {
-  //       nav.current.classList.add("sticky");
-  //       document.querySelector("body").style.paddingTop = nav.current.clientHeight + "px";
-  //     } else {
-  //       nav.current.classList.remove("sticky");
-  //       document.querySelector("body").removeAttribute("style");
-  //     }
-  //   }, 50);
-  // });
-
   return (
     <header
-      className="bg-dark-900 sticky w-full top-0 mb-3"
+      className="bg-dark-900 sticky w-full top-0 mb-3 z-50"
       ref={nav}>
       <nav className="flex items-center justify-between w-full container mx-auto md:px-4 md:py-6 max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between w-full">
@@ -113,6 +98,7 @@ function Navigation() {
                 <Link
                   to={link.link}
                   key={ind}
+                  onClick={linkClicked}
                   className="block mb-4 md:mb-0 px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700">
                   {link.label}
                 </Link>
