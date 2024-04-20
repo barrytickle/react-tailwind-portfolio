@@ -7,6 +7,7 @@ import SectionTriangle from "../components/sectionTriangle";
 import Services from "../components/services";
 import LargeText from "../components/largeText";
 import CaseStudyHero from "../components/caseStudyHero";
+<<<<<<< HEAD
 // import Timeline from "../components/timeline";
 import FeaturedCaseStudies from "../components/featuredCaseStudies";
 
@@ -15,6 +16,8 @@ import HeroLargeText from "../components/heroLargeText";
 import ImageCaption from "../components/imageCaption";
 
 // https://display.framer.website/
+=======
+>>>>>>> eb3cde9 (Added support for case studies)
 
 let isTriangleSection = false;
 
@@ -53,12 +56,15 @@ function Template(props) {
       if (__component === "components.large-text") components.push(parseComponent(<LargeText details={block} />));
       if (__component === "components.case-study-header")
         components.push(parseComponent(<CaseStudyHero details={block} />));
+<<<<<<< HEAD
       if (__component === "components.featured-case-studies")
         components.push(parseComponent(<FeaturedCaseStudies details={block} />));
       if (__component === "components.hero-large-text")
         components.push(parseComponent(<HeroLargeText details={block} />));
 
       if (__component === "components.image-caption") components.push(parseComponent(<ImageCaption details={block} />));
+=======
+>>>>>>> eb3cde9 (Added support for case studies)
     });
 
     // components.push()
