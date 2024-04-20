@@ -19,3 +19,25 @@
     fill: currentColor;
   }
 }
+
+label[for="navigation-toggle"] .close {
+  display: none;
+}
+
+label[for="navigation-toggle"].active .close {
+  display: block;
+}
+
+label[for="navigation-toggle"].active .open {
+  display: none;
+}
+
+.no-move {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+body {
+  /* @apply pt-24; */
+}
