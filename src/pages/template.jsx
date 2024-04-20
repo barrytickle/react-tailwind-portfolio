@@ -50,6 +50,7 @@ function Template(props) {
     // components.push()
   }
 
+  //Hello world
   return components.map((Comp, i) => <div key={i}>{Comp}</div>);
 }
 export default Template;
