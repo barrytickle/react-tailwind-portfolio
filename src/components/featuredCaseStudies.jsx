@@ -16,13 +16,15 @@ function FeaturedCaseStudies({ details }) {
       }
 
       const caseStudies = await fetch(`${endpoint}/pages/?filters[category][slug][$eq]=case-studies&populate=deep`);
-
       const res = await caseStudies.json();
+
       if (res.data && res.data.length > 0) setPages(res.data);
     })();
   }, [pages]);
 
   console.log("Pages", pages);
+
+  if (pages.length === 0) return <p className="text-white text-center">No Pages found</p>;
 
   return (
     <section className="px-4 pt-12 pb-10 md:pb-12 md:pt-16  sm:px-6 lg:px-8">
