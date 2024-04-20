@@ -14,8 +14,9 @@ function Technologies({ details }) {
       <div className="max-w-4xl mx-auto">
         {details.technologyTool.map((tool, ind) => {
           return (
-            <div
-              className="bg-dark-800 rounded-xl py-4 px-6 mb-4 group cursor-pointer"
+            <a
+              className="bg-dark-800 rounded-xl py-4 px-6 mb-4 group cursor-pointer flex justify-between items-center hover:bg-dark-700 duration-200"
+              href={tool.url}
               key={ind}>
               <div className="flex">
                 <div className="w-16 mr-8">
@@ -30,7 +31,18 @@ function Technologies({ details }) {
                   <span className="text-md text-dark-500 text-light">{tool.description}</span>
                 </div>
               </div>
-            </div>
+              <div className="rounded-full border border-dark-200 justify-center items-center h-[50px] w-[50px] -rotate-45 group-hover:rotate-0 duration-200 hidden md:flex">
+                <svg
+                  className="h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512">
+                  <path
+                    fill="#ffffff"
+                    d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+                  />
+                </svg>
+              </div>
+            </a>
           );
         })}
       </div>
