@@ -17,6 +17,7 @@ console.log("MAIN", endpoint);
 
     data.data.forEach((d) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
       const category = d?.attributes?.category?.data?.attributes;
 
 =======
@@ -27,6 +28,14 @@ console.log("MAIN", endpoint);
       // console.log("category", category);
 
 >>>>>>> eb3cde9 (Added support for case studies)
+=======
+      // console.log("Category", d.attributes.category);
+
+      const category = d?.attributes?.category?.data?.attributes;
+
+      // console.log("category", category);
+
+>>>>>>> 57aaad8 (Merge Conflict)
       const page = d.attributes;
       const slug = page.slug === "." ? "/" : page.slug;
       const obj = {

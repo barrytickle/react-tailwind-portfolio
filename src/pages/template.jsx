@@ -17,7 +17,11 @@ import ImageCaption from "../components/imageCaption";
 
 // https://display.framer.website/
 =======
+<<<<<<< HEAD
 >>>>>>> eb3cde9 (Added support for case studies)
+=======
+>>>>>>> 7ebc763 (Added support for case studies)
+>>>>>>> 57aaad8 (Merge Conflict)
 
 let isTriangleSection = false;
 
@@ -64,7 +68,11 @@ function Template(props) {
 
       if (__component === "components.image-caption") components.push(parseComponent(<ImageCaption details={block} />));
 =======
+<<<<<<< HEAD
 >>>>>>> eb3cde9 (Added support for case studies)
+=======
+>>>>>>> 7ebc763 (Added support for case studies)
+>>>>>>> 57aaad8 (Merge Conflict)
     });
 
     // components.push()
