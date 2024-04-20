@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Outlet, Link } from "react-router-dom";
 import ButtonSolidRound from "./buttons/buttonSolidRound";
 import { endpoint } from "../helpers/config";
 function Navigation() {
@@ -38,12 +39,12 @@ function Navigation() {
           <div className="hidden md:flex justify-between items-center md:space-x-0.5 lg:space-x-2 text-xl md:text-base font-medium text-dark-300">
             {links?.navigationUrls?.map((link, ind) => {
               return (
-                <a
-                  href={link.link}
+                <Link
+                  to={link.link}
                   key={ind}
                   className="block px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700">
                   {link.label}
-                </a>
+                </Link>
               );
             })}
           </div>
