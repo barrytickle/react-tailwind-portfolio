@@ -11,6 +11,8 @@ import CaseStudyHero from "../components/caseStudyHero";
 import FeaturedCaseStudies from "../components/featuredCaseStudies";
 
 import SingularTestimonial from "../components/singularTestimonial";
+import HeroLargeText from "../components/heroLargeText";
+import ImageCaption from "../components/imageCaption";
 
 // https://display.framer.website/
 
@@ -22,7 +24,9 @@ const parseComponent = (component) => {
   return component;
 };
 
-function Template({ page }) {
+function Template(props) {
+  const page = props?.page?.element?.props?.page;
+  console.log("WHAT IS THE PAGE?", props, page);
   if (Object.keys(page).length === 0) return <h1 className="text-dark-400 text-2xl">error: Page not found</h1>;
   let components = [];
 
@@ -35,7 +39,7 @@ function Template({ page }) {
       </Wrapper>
     );
   } else {
-    page.blocks.map((block) => {
+    page?.blocks?.map((block) => {
       const { __component } = block;
 
       if (__component === "components.triangle-section") {
@@ -51,6 +55,10 @@ function Template({ page }) {
         components.push(parseComponent(<CaseStudyHero details={block} />));
       if (__component === "components.featured-case-studies")
         components.push(parseComponent(<FeaturedCaseStudies details={block} />));
+      if (__component === "components.hero-large-text")
+        components.push(parseComponent(<HeroLargeText details={block} />));
+
+      if (__component === "components.image-caption") components.push(parseComponent(<ImageCaption details={block} />));
     });
 
     // components.push()
