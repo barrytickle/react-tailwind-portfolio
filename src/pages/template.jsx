@@ -7,6 +7,7 @@ import SectionTriangle from "../components/sectionTriangle";
 import Services from "../components/services";
 import LargeText from "../components/largeText";
 import CaseStudyHero from "../components/caseStudyHero";
+
 // import Timeline from "../components/timeline";
 import FeaturedCaseStudies from "../components/featuredCaseStudies";
 
@@ -53,6 +54,7 @@ function Template(props) {
       if (__component === "components.large-text") components.push(parseComponent(<LargeText details={block} />));
       if (__component === "components.case-study-header")
         components.push(parseComponent(<CaseStudyHero details={block} />));
+
       if (__component === "components.featured-case-studies")
         components.push(parseComponent(<FeaturedCaseStudies details={block} />));
       if (__component === "components.hero-large-text")

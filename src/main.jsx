@@ -24,7 +24,6 @@ console.log("MAIN", endpoint);
         path: category.slug !== "page" ? `/${category.slug}/${slug}` : slug,
         element: <Template page={page} />,
       };
-
       pages.push(obj);
     });
 

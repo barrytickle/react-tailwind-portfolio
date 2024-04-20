@@ -54,6 +54,7 @@ function CaseStudyHero({ details }) {
               className="inset-0 object-cover object-center w-full align-middle rounded-3xl h-[640px]"
               src={url + details.featuredImage?.data?.attributes?.formats?.large?.url}
             />
+
           </div>
         </div>
       </section>
