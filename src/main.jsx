@@ -16,26 +16,8 @@ console.log("MAIN", endpoint);
     const pages = [];
 
     data.data.forEach((d) => {
-<<<<<<< HEAD
-<<<<<<< HEAD
       const category = d?.attributes?.category?.data?.attributes;
 
-=======
-      // console.log("Category", d.attributes.category);
-
-      const category = d?.attributes?.category?.data?.attributes;
-
-      // console.log("category", category);
-
->>>>>>> eb3cde9 (Added support for case studies)
-=======
-      // console.log("Category", d.attributes.category);
-
-      const category = d?.attributes?.category?.data?.attributes;
-
-      // console.log("category", category);
-
->>>>>>> 57aaad8 (Merge Conflict)
       const page = d.attributes;
       const slug = page.slug === "." ? "/" : page.slug;
       const obj = {
@@ -43,13 +25,7 @@ console.log("MAIN", endpoint);
         element: <Template page={page} />,
       };
 
-<<<<<<< HEAD
       pages.push(obj);
-=======
-      STATE.pages.push(obj);
-
-      console.log("Pages", createBrowserRouter(STATE.pages));
->>>>>>> eb3cde9 (Added support for case studies)
     });
 
     ReactDOM.createRoot(document.getElementById("root")).render(
