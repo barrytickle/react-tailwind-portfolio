@@ -61,7 +61,7 @@ function Hero({ details }) {
           <div className="flex items-center justify-center max-w-xl mx-auto mt-12 sm:mt-16 lg:mt-0 lg:max-w-none">
             <img
               src={url + details?.featuredImage?.data?.attributes?.url}
-              className="z-30 object-cover w-auto h-full shadow-md rounded-3xl"
+              className="z-30 object-cover w-auto h-full shadow-md rounded-3xl min-h-[500px]"
             />
           </div>
         </div>
