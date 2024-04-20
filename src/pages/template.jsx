@@ -11,9 +11,9 @@ import CaseStudyHero from "../components/caseStudyHero";
 // import Timeline from "../components/timeline";
 import FeaturedCaseStudies from "../components/featuredCaseStudies";
 
-import SingularTestimonial from "../components/singularTestimonial";
 import HeroLargeText from "../components/heroLargeText";
 import ImageCaption from "../components/imageCaption";
+import Timeline from "../components/timeline";
 
 // https://display.framer.website/
 
@@ -61,9 +61,10 @@ function Template(props) {
         components.push(parseComponent(<HeroLargeText details={block} />));
 
       if (__component === "components.image-caption") components.push(parseComponent(<ImageCaption details={block} />));
+      if (__component === "components.timeline") components.push(parseComponent(<Timeline details={block} />));
     });
 
-    // components.push()
+    // components.push(<Timeline />);
   }
 
   //Hello world
