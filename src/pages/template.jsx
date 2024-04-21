@@ -8,12 +8,14 @@ import Services from "../components/services";
 import LargeText from "../components/largeText";
 import CaseStudyHero from "../components/caseStudyHero";
 
+import { Helmet } from "react-helmet";
 // import Timeline from "../components/timeline";
 import FeaturedCaseStudies from "../components/featuredCaseStudies";
 
 import HeroLargeText from "../components/heroLargeText";
 import ImageCaption from "../components/imageCaption";
 import Timeline from "../components/timeline";
+import ContactForm from "../components/contactForm";
 
 // https://display.framer.website/
 
@@ -27,6 +29,7 @@ const parseComponent = (component) => {
 
 function Template(props) {
   const page = props?.page?.element?.props?.page;
+
   console.log("WHAT IS THE PAGE?", props, page);
   if (Object.keys(page).length === 0) return <h1 className="text-dark-400 text-2xl">error: Page not found</h1>;
   let components = [];
@@ -62,12 +65,25 @@ function Template(props) {
 
       if (__component === "components.image-caption") components.push(parseComponent(<ImageCaption details={block} />));
       if (__component === "components.timeline") components.push(parseComponent(<Timeline details={block} />));
+      if (__component === "components.contact-form") components.push(parseComponent(<ContactForm details={block} />));
     });
 
     // components.push(<Timeline />);
   }
 
   //Hello world
-  return components.map((Comp, i) => <div key={i}>{Comp}</div>);
+  return (
+    <>
+      <Helmet>
+        <title>
+          {page.name === "Homepage" || page.name === "" ? "Home" : page.name} | Barry Tickle | Web Developer in
+          Newton-le-willows
+        </title>
+      </Helmet>
+      {components.map((Comp, i) => (
+        <div key={i}>{Comp}</div>
+      ))}
+    </>
+  );
 }
 export default Template;

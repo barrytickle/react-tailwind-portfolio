@@ -6,7 +6,6 @@ import CtaBlock from "./ctaBlock";
 
 import "external-svg-loader";
 
-import { url } from "../helpers/config";
 import { Link } from "react-router-dom";
 import { linkClicked } from "../helpers/helpers";
 
@@ -98,33 +97,25 @@ function Footer() {
           {/* Social links */}
           <div className="sm:col-span-3 lg:col-span-1 lg:mx-auto">
             <h6 className="text-xl font-semibold text-white">Follow us on social media</h6>
-            <p className="mt-2 text-lg text-dark-300">{content.social_media_text}</p>
-            <div className="w-full mt-4 lg:mt-6">
+            <div className="w-full">
               {/* Social links container */}
 
               <div className="flex justify-start space-x-4">
-                {content.social_media?.map((social, ind) => {
-                  return (
-                    <a
-                      key={ind}
-                      className="flex items-center justify-center w-12 h-12 transition duration-300 ease-in-out rounded-full bg-dark-700 hover:text-dark-900 hover:bg-white text-dark-300"
-                      href={social.url}
-                      alt={social.text}>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-6 h-6"
-                        width="44"
-                        data-src={`${url}${social?.icon?.data?.attributes?.url}`}
-                        height="44"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        fill="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"></svg>
-                    </a>
-                  );
-                })}
+                <ul className="mt-2 space-y-1 text-lg">
+                  {content.social_media?.map((social, ind) => {
+                    return (
+                      <li
+                        key={ind}
+                        className="font-medium text-dark-300 hover:text-white">
+                        <Link
+                          to={social.url}
+                          onClick={linkClicked}>
+                          {social.text}{" "}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </div>
           </div>
