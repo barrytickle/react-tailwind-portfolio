@@ -32,10 +32,6 @@ function App({ pages }) {
       </Routes>
     </BrowserRouter>
   );
-
-  // return <>
-
-  // </>
 }
 
 export default App;
