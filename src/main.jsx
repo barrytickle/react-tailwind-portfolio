@@ -32,6 +32,8 @@ console.log("MAIN", endpoint);
         <App pages={pages} />
       </React.StrictMode>
     );
+
+    console.log("Hello");
   } catch (error) {
     console.warn(error);
   }
