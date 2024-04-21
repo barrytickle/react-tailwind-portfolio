@@ -20,7 +20,7 @@ function ContentZone({ details }) {
               },
               p: {
                 props: {
-                  className: "mb-3 font-light mx-auto mt-3 text-xl md:mt-3 text-dark-300 ",
+                  className: "mb-3 font-light mx-auto mt-3 text-lg md:mt-3 text-dark-300 ",
                 },
               },
               ul: {
@@ -31,6 +31,11 @@ function ContentZone({ details }) {
               li: {
                 props: {
                   className: "list-disc mb-3 font-light mx-auto mt-3 text-xl md:mt-3 text-dark-300	",
+                },
+              },
+              strong: {
+                props: {
+                  className: "font-medium text-dark-100",
                 },
               },
             },
