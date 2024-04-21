@@ -3,6 +3,7 @@ import Template from "./pages/template";
 import Layout from "./pages/layout";
 import NotFound from "./pages/notFound";
 
+// https://www.w3schools.com/react/react_router.asp
 function App({ pages }) {
   return (
     <BrowserRouter>
@@ -16,7 +17,6 @@ function App({ pages }) {
             return (
               <Route
                 key={ind}
-                // index
                 index={page.path === "/"}
                 path={page.path}
                 element={<Template page={page} />}
