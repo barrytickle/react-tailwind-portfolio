@@ -16,6 +16,8 @@ import HeroLargeText from "../components/heroLargeText";
 import ImageCaption from "../components/imageCaption";
 import Timeline from "../components/timeline";
 import ContactForm from "../components/contactForm";
+import ContentZone from "../components/contentZone";
+import HeroColumn from "../components/heroColumn";
 
 // https://display.framer.website/
 
@@ -66,6 +68,8 @@ function Template(props) {
       if (__component === "components.image-caption") components.push(parseComponent(<ImageCaption details={block} />));
       if (__component === "components.timeline") components.push(parseComponent(<Timeline details={block} />));
       if (__component === "components.contact-form") components.push(parseComponent(<ContactForm details={block} />));
+      if (__component === "components.content-zone") components.push(parseComponent(<ContentZone details={block} />));
+      if ((__component === "components.hero-column", components.push(parseComponent(<HeroColumn details={block} />))));
     });
 
     // components.push(<Timeline />);
