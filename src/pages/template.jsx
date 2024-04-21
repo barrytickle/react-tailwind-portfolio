@@ -69,7 +69,7 @@ function Template(props) {
       if (__component === "components.timeline") components.push(parseComponent(<Timeline details={block} />));
       if (__component === "components.contact-form") components.push(parseComponent(<ContactForm details={block} />));
       if (__component === "components.content-zone") components.push(parseComponent(<ContentZone details={block} />));
-      if ((__component === "components.hero-column", components.push(parseComponent(<HeroColumn details={block} />))));
+      if (__component === "components.hero-column") components.push(parseComponent(<HeroColumn details={block} />));
     });
 
     // components.push(<Timeline />);
@@ -85,7 +85,11 @@ function Template(props) {
         </title>
       </Helmet>
       {components.map((Comp, i) => (
-        <div key={i}>{Comp}</div>
+        <div
+          id={Comp.__component}
+          key={i}>
+          {Comp}
+        </div>
       ))}
     </>
   );
