@@ -39,7 +39,7 @@ function Hero({ details }) {
                 if (button.style === "whiteRound")
                   return (
                     <ButtonSolidRound
-                      className={"mt-2 md:mt-0"}
+                      className={"mt-2 md:mt-0 md:mr-2"}
                       key={ind}
                       url={button.url}
                       text={button.label}
