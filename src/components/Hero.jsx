@@ -39,6 +39,7 @@ function Hero({ details }) {
                 if (button.style === "whiteRound")
                   return (
                     <ButtonSolidRound
+                      className={"mt-2"}
                       key={ind}
                       url={button.url}
                       text={button.label}
@@ -48,6 +49,7 @@ function Hero({ details }) {
                 if (button.style === "animatedCircle")
                   return (
                     <ButtonAnimated
+                      className={"mt-2"}
                       key={ind}
                       url={button.url}
                       text={button.label}

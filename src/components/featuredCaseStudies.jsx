@@ -89,6 +89,7 @@ function FeaturedCaseStudies({ details }) {
                         </div>
                         <div className="mt-8 xl:mt-4 flex">
                           <ButtonAnimated
+                            className={"mr-2"}
                             url={`/${caseStudy.attributes?.category?.data?.attributes?.slug}/${caseStudy?.attributes?.slug}`}
                             text={"Case study"}
                           />
