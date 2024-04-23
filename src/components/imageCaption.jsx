@@ -12,6 +12,7 @@ function ImageCaption({ details }) {
       <div className="flex flex-col justify-between ">
         <img
           src={url + details.image?.data?.attributes?.url}
+          alt={details?.image?.data?.attributes?.alternativeText ?? ""}
           className={`max-h-[560px] rounded-3xl object-cover ${imagePosition[details.imagePosition]}`}
         />
         <p className="text-white centered text-[28px] items-center font-normal mt-12">{details.caption}</p>

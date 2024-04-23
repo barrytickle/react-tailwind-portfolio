@@ -10,18 +10,21 @@ function Services(props) {
         <div className="row-span-2 shadow-xl rounded-3xl">
           <img
             src={url + images[0]?.attributes?.formats?.medium?.url}
+            alt={images[0]?.attributes?.alternativeText}
             className="object-cover  w-full h-full rounded-3xl max-w-[277px] object-[30%]"
           />
         </div>
         <div className="shadow-xl rounded-3xl">
           <img
             src={url + images[1]?.attributes?.formats?.medium?.url}
+            alt={images[1]?.attributes?.alternativeText ?? ""}
             className="object-cover object-center w-full h-full rounded-3xl"
           />
         </div>
         <div className="shadow-xl rounded-3xl">
           <img
             src={url + images[2]?.attributes?.formats?.medium?.url}
+            alt={images[2]?.attributes?.alternativeText ?? ""}
             className="object-cover object-center w-full h-full rounded-3xl"
           />
         </div>

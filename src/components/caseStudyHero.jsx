@@ -53,8 +53,8 @@ function CaseStudyHero({ details }) {
             <img
               className="inset-0 object-cover object-center w-full align-middle rounded-3xl h-[640px]"
               src={url + details.featuredImage?.data?.attributes?.formats?.large?.url}
+              alt={details?.featuredImage?.data?.attributes?.alternativeText ?? ""}
             />
-
           </div>
         </div>
       </section>
