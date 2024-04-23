@@ -83,6 +83,14 @@ function Template(props) {
           {page.name === "Homepage" || page.name === "" ? "Home" : page.name} | Barry Tickle | Web Developer in
           Newton-le-willows
         </title>
+        {page.seo?.metaDescription ? (
+          <meta
+            name="description"
+            content={page.seo.metaDescription}
+          />
+        ) : (
+          ""
+        )}
       </Helmet>
       {components.map((Comp, i) => (
         <div
