@@ -112,6 +112,7 @@ function FeaturedCaseStudies({ details }) {
                     <div className="relative w-full h-64 bg-center bg-cover shadow-xl lg:rounded-3xl rounded-t-3xl lg:pt-[46%] lg:w-[90%] lg:ml-auto lg:h-full">
                       <img
                         src={url + header?.featuredImage?.data?.attributes?.formats?.large?.url}
+                        alt={caseStudy.attributes?.name}
                         className="absolute inset-0 object-cover object-center w-full h-full lg:rounded-3xl rounded-t-3xl"
                       />
                       <p className="inline-flex items-center justify-center px-6 py-2 mt-4 ml-6 text-xs font-medium tracking-wide text-white rounded-r-full rounded-tl-full bg-gradient-to-r sm:ml-8 lg:hidden from-dark-800 to-dark-900">
