@@ -20,7 +20,7 @@ export default function LargeText({ details }) {
               {details.tag}
             </p>
 
-            <h2 className={"text-6xl font-extrabold mb-8"}>{details.title}</h2>
+            <h2 className={"text-6xl font-extrabold mb-8 mt-6"}>{details.title}</h2>
 
             <div className="flex flex-wrap w-full mx-auto mt-6 text-center">
               <div className="w-full mx-auto lg:w-4/5">

@@ -49,7 +49,7 @@ function Hero({ details }) {
                 if (button.style === "animatedCircle")
                   return (
                     <ButtonAnimated
-                      className={"mt-2"}
+                      className={"mt-2 md:mt-0"}
                       key={ind}
                       url={button.url}
                       text={button.label}
