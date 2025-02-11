@@ -5,9 +5,7 @@ import CtaBlock from "./cta-block";
 import SingularTestimonial from "./singular-testimonial";
 
 import "external-svg-loader";
-
 import { Link } from "react-router-dom";
-import { linkClicked } from "../helpers/helpers";
 
 // data-src={`${url}${image?.url}`}
 
@@ -69,12 +67,7 @@ const Footer = () => {
                   <li
                     key={ind}
                     className="font-medium text-dark-300 hover:text-white">
-                    <Link
-                      to={url.link}
-                      onClick={linkClicked}>
-                      {" "}
-                      {url.label}{" "}
-                    </Link>
+                    <Link to={url.link}> {url.label} </Link>
                   </li>
                 );
               })}
@@ -94,11 +87,7 @@ const Footer = () => {
                       <li
                         key={ind}
                         className="font-medium text-dark-300 hover:text-white">
-                        <Link
-                          to={social.url}
-                          onClick={linkClicked}>
-                          {social.text}{" "}
-                        </Link>
+                        <Link to={social.url}>{social.text} </Link>
                       </li>
                     );
                   })}

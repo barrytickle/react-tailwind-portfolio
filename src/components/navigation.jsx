@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import OptionsContext from "../context/OptionsContext";
-import { linkClicked } from "../helpers/helpers";
 import ButtonSolidRound from "./buttons/buttonSolidRound";
 
 function Navigation() {
@@ -99,7 +98,6 @@ function Navigation() {
                 <Link
                   to={link.link}
                   key={ind}
-                  onClick={linkClicked}
                   className={`block mb-4 md:mb-0 px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700 ${link.link === window.location.pathname ? "text-white" : ""}`}>
                   {link.label}
                 </Link>
