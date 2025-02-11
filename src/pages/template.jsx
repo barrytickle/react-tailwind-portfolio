@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import CursorDot from "../components/cursor/CursorDot";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import Navigation from "../components/navigation";
 
 // https://display.framer.website/
