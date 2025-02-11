@@ -1,4 +1,4 @@
-import Wrapper from "./Wrapper";
+import Wrapper from "./wrapper";
 
 export default function LargeText({ details }) {
   const positionMap = {

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import CursorDot from "../components/cursor/CursorDot";
+import CursorDot from "../components/cursor/cursor-dot";
 import Footer from "../components/footer";
 import Navigation from "../components/navigation";
 
