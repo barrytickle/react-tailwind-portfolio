@@ -4,6 +4,7 @@ import OptionsContext from "./context/OptionsContext";
 import NotFound from "./pages/notFound";
 import Page from "./pages/page";
 import Template from "./pages/template";
+import ScrollToTop from "./scroll-to-top";
 
 // https://www.w3schools.com/react/react_router.asp
 function App() {
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route
           path="/"
