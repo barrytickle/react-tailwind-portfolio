@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 
-import { endpoint } from "../helpers/config";
-import SingularTestimonial from "./singularTestimonial";
+import OptionsContext from "../context/OptionsContext";
+import SingularTestimonial from "./SingularTestimonial";
 import CtaBlock from "./ctaBlock";
 
 import "external-svg-loader";
@@ -11,25 +11,16 @@ import { linkClicked } from "../helpers/helpers";
 
 // data-src={`${url}${image?.url}`}
 
-function Footer() {
-  const [content, setContent] = useState({});
+const Footer = () => {
+  const options = useContext(OptionsContext);
+  const blocks = [];
 
-  let blocks = [];
-
-  useEffect(() => {
-    (async () => {
-      if (Object.keys(content).length > 0) return;
-      const response = await fetch(`${endpoint}/footer?populate=deep`);
-
-      if (response.status !== 200) {
-        console.log("Incorrect response, footer");
-        return;
-      }
-      const data = await response.json();
-
-      setContent(data.data.attributes);
-    })();
-  }, [content]);
+  console.log("Footer options", options);
+  const content = options?.store?.footer?.attributes;
+  if (!content) {
+    console.warn("Footer content not found");
+    return <></>;
+  }
 
   content?.blocks?.map((block) => {
     if (block.__component === "components.singular-testimonial") blocks.push(<SingularTestimonial details={block} />);
@@ -54,7 +45,7 @@ function Footer() {
                 <span className="transition duration-200 ease-in-out text-dark-300 group-hover:text-white">Tickle</span>
               </a>
             </div>
-            <div className="mt-6 text-lg md:mt-8 text-dark-300">
+            <div className="mt-6 text-lg md:mt-4 text-dark-300">
               © {new Date().getFullYear()} Barry Tickle.
               <br />
               All rights reserved.
@@ -64,13 +55,9 @@ function Footer() {
           {/* Contact information */}
           <div className="lg:mx-auto">
             <h6 className="text-xl font-semibold text-white">Get in touch</h6>
-            <p className="mt-2 text-lg text-dark-300">
-              {content.address}
-              <br />
-              {/* Los Angeles, CA 90001 */}
-            </p>
-            <p className="mt-6 text-lg text-dark-300">{content.phone}</p>
-            <p className="text-lg text-dark-300">{content.email}</p>
+            {content.address && <p className="mt-2 text-lg text-dark-300">{content.address}</p>}
+            {content.phone && <p className="mt-6 text-lg text-dark-300">{content.phone}</p>}
+            {content.email && <p className="text-lg text-dark-300">{content.email}</p>}
           </div>
 
           {/* Site links */}
@@ -123,6 +110,6 @@ function Footer() {
       </footer>
     </>
   );
-}
+};
 
 export default Footer;

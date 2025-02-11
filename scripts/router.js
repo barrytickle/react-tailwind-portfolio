@@ -2,8 +2,6 @@ import { endpoint } from "../src/helpers/config.js";
 
 import * as fs from "fs";
 
-console.log(endpoint);
-
 let xml = '<urlset xmlns="https://sitemaps.org/schemas/sitemap.0.9">';
 
 const router = async () => {

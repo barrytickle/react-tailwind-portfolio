@@ -1,15 +1,11 @@
-import Wrapper from "./wrapper";
+import Wrapper from "./Wrapper";
 
 export default function LargeText({ details }) {
-  console.log(details);
-
   const positionMap = {
     center: "text-center",
     left: "text-left",
     right: "text-right",
   };
-
-  console.log(details.position, positionMap["center"], positionMap[details.position]);
 
   return (
     <>

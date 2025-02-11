@@ -1,6 +1,6 @@
 import { url } from "../helpers/config";
 
-function CaseStudyHero({ details }) {
+function CaseStudyHeader({ details }) {
   return (
     <>
       <section className="px-4 py-12 md:py-16 sm:px-6 lg:px-8">
@@ -62,4 +62,4 @@ function CaseStudyHero({ details }) {
   );
 }
 
-export default CaseStudyHero;
+export default CaseStudyHeader;

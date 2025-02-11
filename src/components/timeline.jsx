@@ -1,4 +1,4 @@
-import Wrapper from "./wrapper";
+import Wrapper from "./Wrapper";
 
 function Timeline({ details }) {
   return (

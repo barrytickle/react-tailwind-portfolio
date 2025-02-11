@@ -33,7 +33,7 @@ function Services(props) {
   };
 
   return (
-    <>
+    <div className="px-4 py-10 md:py-12 bg-dark-800 sm:px-6 lg:px-8">
       <div className="max-w-xl mx-auto text-center md:max-w-2xl lg:text-left lg:max-w-screen-xl">
         <p className="inline-flex items-center justify-center px-6 py-2 text-sm font-medium tracking-wide text-white rounded-r-full rounded-tl-full bg-gradient-to-r from-dark-600 to-dark-700">
           {details.subtitle}
@@ -218,7 +218,7 @@ function Services(props) {
           <div className="grid h-full grid-flow-col grid-rows-2 gap-4">{generateImages()}</div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

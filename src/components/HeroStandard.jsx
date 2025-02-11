@@ -1,8 +1,8 @@
-import ButtonSolidRound from "./buttons/buttonSolidRound";
-import ButtonAnimated from "./buttons/buttonAnimated";
 import { url } from "../helpers/config";
+import ButtonAnimated from "./buttons/buttonAnimated";
+import ButtonSolidRound from "./buttons/buttonSolidRound";
 
-function Hero({ details }) {
+function HeroStandard({ details }) {
   const { tag, title, content } = details;
 
   console.log("Hero", details);
@@ -72,4 +72,4 @@ function Hero({ details }) {
     </section>
   );
 }
-export default Hero;
+export default HeroStandard;

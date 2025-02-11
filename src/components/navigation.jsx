@@ -1,22 +1,23 @@
-import { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
-import ButtonSolidRound from "./buttons/buttonSolidRound";
-import { endpoint } from "../helpers/config";
+import { useContext, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import OptionsContext from "../context/OptionsContext";
 import { linkClicked } from "../helpers/helpers";
+import ButtonSolidRound from "./buttons/buttonSolidRound";
+
 function Navigation() {
-  const [links, setLinks] = useState({});
-  const nav = useRef("");
+  const { store } = useContext(OptionsContext);
+  const nav = useRef(null);
 
-  useEffect(() => {
-    (async () => {
-      if (Object.keys(links).length > 0) return;
-      const response = await fetch(`${endpoint}/navigation?populate=*`);
-      if (response.status !== 200) return;
-      const data = await response.json();
+  const links = store?.menus?.attributes;
 
-      setLinks(data.data.attributes);
-    })();
-  }, [links]);
+  console.log("Store", store);
+
+  console.log("Links", links);
+
+  const location = useLocation();
+
+  // Will Refresh navigation if the url changes
+  useEffect(() => {}, [location.pathname]);
 
   const toggleHamburger = (e) => {
     let target;
@@ -99,7 +100,7 @@ function Navigation() {
                   to={link.link}
                   key={ind}
                   onClick={linkClicked}
-                  className="block mb-4 md:mb-0 px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700">
+                  className={`block mb-4 md:mb-0 px-4 py-1 transition duration-200 ease-in-out rounded-full sm:inline-block hover:text-white hover:bg-dark-700 ${link.link === window.location.pathname ? "text-white" : ""}`}>
                   {link.label}
                 </Link>
               );

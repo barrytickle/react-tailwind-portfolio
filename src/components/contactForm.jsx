@@ -1,7 +1,6 @@
 import Markdown from "markdown-to-jsx";
 
 function ContactForm({ details }) {
-  console.log("Form Details", details, details.FormFields);
   return (
     <section className="px-4 py-12 md:py-16 sm:px-6 lg:px-8">
       <div className="max-w-screen-xl mx-auto">
