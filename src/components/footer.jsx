@@ -1,8 +1,8 @@
 import { useContext } from "react";
 
 import OptionsContext from "../context/OptionsContext";
-import SingularTestimonial from "./SingularTestimonial";
-import CtaBlock from "./ctaBlock";
+import CtaBlock from "./cta-block";
+import SingularTestimonial from "./singular-testimonial";
 
 import "external-svg-loader";
 

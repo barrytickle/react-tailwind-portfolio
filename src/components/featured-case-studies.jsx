@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { endpoint, url } from "../helpers/config";
 import { generateUrl } from "../helpers/helpers";
 import ButtonSolidRound from "./buttons/buttonSolidRound";
-import CaseStudyBlock from "./CaseStudyBlock";
+import CaseStudyBlock from "./case-study-block";
 
 function FeaturedCaseStudies({ details }) {
   const [pages, setPages] = useState([]);

@@ -1,5 +1,5 @@
-import TriangleAfter from "./TriangleAfter";
-import TriangleBefore from "./TriangleBefore";
+import TriangleAfter from "./triangle-after";
+import TriangleBefore from "./triangle-before";
 
 function TriangleSection({ details }) {
   const Child = details.position == "start" ? TriangleBefore : TriangleAfter;
